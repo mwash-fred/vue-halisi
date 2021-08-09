@@ -2,7 +2,7 @@
   <div id="nav">
     <Mouse />
     <!-- <Menu /> -->
-    <Header @toggle-menu="toggleMenu" />
+    <Header @toggle-menu="toggleMenu" title="Home"/>
     <Sidebar />
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
@@ -50,10 +50,9 @@ export default class Home extends Vue {}
   background-color: black
   text-align: center
   color: $gray
-  padding-top: 2em
+  height: 100vh
 
 html, body
-  background-color: black !important
   margin: 0
   padding: 0
   overflow-y: hidden
@@ -67,6 +66,4 @@ html, body
     &.router-link-exact-active
       color: $gray
 
-// router-link
-//   margin-top: 2em
 </style>

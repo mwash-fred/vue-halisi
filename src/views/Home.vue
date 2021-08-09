@@ -5,8 +5,9 @@
       <div>Halisi Studios Halisi Studios Halisi Studios</div>
       <div>Halisi Studios Halisi Studios Halisi Studios</div>
     </h1>
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
+    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
+    <Tabs />
     <Footer />
   </div>
 </template>
@@ -16,6 +17,7 @@ import { Options, Vue } from "vue-class-component";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import Dash from "@/components/Dash.vue";
+import Tabs from "@/components/Tabs.vue";
 import Footer from "@/components/Footer.vue";
 
 
@@ -23,6 +25,7 @@ import Footer from "@/components/Footer.vue";
   components: {
     Dash,
     Header,
+    Tabs,
     HelloWorld,
     Footer
   },
@@ -43,21 +46,10 @@ export default class Home extends Vue {}
   margin-top: 3.4em
   animation: text-loop 20s linear infinite
 
-  // &:nth-child(2)
-  //   animation: text-loop-2 40s linear infinite
-  //   color: pink
-  //   animation-delay: -20s
-
 @keyframes text-loop
   0%
     transform: rotate(-90deg) translateX(0%)
   100%
     transform: rotate(-90deg) translateX(-100%)
-
-// @keyframes text-loop-2
-//   0%
-//     transform: rotate(-90deg) translateX(0%)
-//   100%
-//     transform: rotate(-90deg) translateX(-200%)
 
 </style>
