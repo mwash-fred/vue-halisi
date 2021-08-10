@@ -1,21 +1,22 @@
 <template>
   <footer class="d-block">
-    <ul class="socials">
-      <li>
-        <router-link to="/"><i class="fab fa-instagram"></i></router-link>
-      </li>
-      <li>
-        <router-link to="/"><i class="fab fa-twitter"></i></router-link>
-      </li>
-      <li>
-        <router-link to="/"><i class="fab fa-facebook-f"></i></router-link>
-      </li>
-    </ul>
+    <div class="d-flex">
+      <ul class="socials">
+        <li>
+          <router-link to="/"><i class="fab fa-instagram"></i></router-link>
+        </li>
+        <li>
+          <router-link to="/"><i class="fab fa-twitter"></i></router-link>
+        </li>
+        <li>
+          <router-link to="/"><i class="fab fa-facebook-f"></i></router-link>
+        </li>
+      </ul>
+    </div>
 
     <div class="policies d-flex">
       <router-link to="/"> Privacy policy </router-link>
       <router-link to="/Contact">Contact</router-link>
-      <div class="scrollNav"></div>
       <div class="ref">Copyright &copysr; 2021</div>
     </div>
   </footer>
@@ -73,5 +74,6 @@ ul li
     margin-left: -.2em
 
 .ref
-  margin-left: 75vw
+  position: relative
+  left: 75vw
 </style>

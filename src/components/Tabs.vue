@@ -22,8 +22,8 @@ export default {
 @import '@/assets/_config.sass';
 
 ul
-    position: absolute
-    offset-block-start: 4em
+    position: relative
+    margin-left: 40vw
     display: flex
     flex-direction: row
     margin-top: 4em
