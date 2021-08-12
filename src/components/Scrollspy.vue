@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="scrollspy justify-self-center"></div>
-    <div class="scrollspy justify-self-center"></div>
+    <div class="scrollspy"></div>
+    <div class="scrollspy"></div>
   </div>
 </template>
 

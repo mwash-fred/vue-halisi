@@ -2,7 +2,7 @@
   font-family: Kenoky, Arial, Helvetica, sans-serif
   src: url(https://www.cufonfonts.com/download/rf/kenoky-2)
 
-@font-face 
+@font-face
   font-family: "Cormorant Garamond",Arial,Helvetica,sans-serif
   src: url(https://www.cufonfonts.com/download/rf/cormorant-garamond)
 
@@ -11,6 +11,15 @@ $primaryFont: "Cormorant Garamond",Arial,Helvetica,sans-serif
 
 $gray: #dedede
 $ashGray: #707070
+$midGray: #b8b8b8
 $darkGray: #1d1d1d
 $yellow: #F8BC24
 $green: #1A4645
+
+::-moz-selection
+  color: $ashGray
+  background: yellow
+
+::selection
+  color: $ashGray
+  background: lighten($yellow,30%)

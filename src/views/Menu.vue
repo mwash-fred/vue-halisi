@@ -1,6 +1,8 @@
 <template>
-  <div>
+  <div class="slide">
+    <ul>
       
+    </ul>
   </div>
 </template>
 
@@ -8,19 +10,20 @@
 import { Options, Vue } from "vue-class-component";
 
 @Options({
-  components: {
-  },
+  components: {},
 })
 export default class Home extends Vue {}
 </script>
 
 <style lang="sass" scoped>
-div
+@import '@/assets/_config.sass'
+
+.slide
   background-color: rgba(26,70,69,.8)
   position: absolute
   height: 100vh
   width: 85.69vw
   top: 0
   right: 0
-  
+  z-index: 99999999
 </style>

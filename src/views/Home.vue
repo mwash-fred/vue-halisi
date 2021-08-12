@@ -42,7 +42,7 @@ export default class Home extends Vue {}
 </script>
 
 <style lang="sass" scoped>
-@import '@/assets/_config.sass';
+@import '@/assets/_config.sass'
 
 .titleTag div
   font-family: $secondaryFont
@@ -61,7 +61,7 @@ export default class Home extends Vue {}
     transform: rotate(-90deg) translateX(-100%)
 
 .info
-  margin-top: 4em
+  margin-top: 4.5em
 
   p
     margin: 0

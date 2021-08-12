@@ -4,6 +4,7 @@
     <!-- <Menu /> -->
     <Header @toggle-menu="toggleMenu" title="Home"/>
     <Sidebar />
+    <!-- <Menu /> -->
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
   </div>
@@ -61,7 +62,9 @@ html, body
 
   a
     text-decoration: none
-    color: red
+    color: $ashGray
+    &:hover
+      color: $gray !important
 
     &.router-link-exact-active
       color: $gray
