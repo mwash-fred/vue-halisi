@@ -1,8 +1,7 @@
 <template>
   <div id="nav">
     <Mouse />
-    <!-- <Menu /> -->
-    <Header @toggle-menu="toggleMenu" title="Home"/>
+    <!-- <Menu /> -->    
     <Sidebar />
     <!-- <Menu /> -->
     <!-- <router-link to="/">Home</router-link> |
@@ -15,14 +14,12 @@
 import { Options, Vue } from "vue-class-component";
 import Mouse from "@/components/Mouse.vue";
 import Menu from "@/views/Menu.vue";
-import Header from "@/components/Header.vue";
 import Sidebar from "@/components/Sidebar.vue";
 
 @Options({
   components: {
     Mouse,
     Menu,
-    Header,
     Sidebar,
   },
   methods: {
@@ -52,6 +49,9 @@ export default class Home extends Vue {}
   text-align: center
   color: $gray
   height: 100vh
+
+img
+  image-rendering: optimizeQuality
 
 html, body
   margin: 0

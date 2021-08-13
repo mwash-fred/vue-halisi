@@ -1,4 +1,6 @@
 <template>
+  <Header title="Contact"/> <!-- Include this class @toggle-menu="toggleMenu" -->
+  
   <h1 class="payment text-left">Till No: <br /><span>000000</span></h1>
   <h1 class="title">Get in <span>touch</span></h1>
 
@@ -113,9 +115,11 @@
 import { Options, Vue } from "vue-class-component";
 import Middledash from "@/components/Middledash.vue";
 import Footer from "@/components/Footer.vue";
+import Header from "@/components/Header.vue"
 
 @Options({
   components: {
+    Header,
     Middledash,
     Footer,
   },

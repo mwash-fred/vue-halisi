@@ -15,5 +15,5 @@ import Middledash from "@/components/Middledash.vue"
     Middledash
   },
 })
-export default class Home extends Vue {}
+export default class Team extends Vue {}
 </script>

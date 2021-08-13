@@ -1,5 +1,7 @@
 <template>
   <div class="home">
+    <Header @toggle-menu="toggleMenu" title="Home"/>
+
     <Dash />
     <h1 class="titleTag">
       <div>Halisi Studios Halisi Studios Halisi Studios</div>
