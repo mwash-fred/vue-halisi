@@ -12,8 +12,16 @@
     <p>Terms & Conditions</p>
   </div>
 
-  <div class="container form-section-container">
-    <div>
+  <div
+    class="
+      container
+      form-section-container
+      d-flex
+      flex-row
+      justify-content-between
+    "
+  >
+    <div class="text-section col-md-2">
       <p>
         STUDIO : <br />Nairobi, NRB<br />
         +254 711 111 111 <br />
@@ -25,8 +33,8 @@
       </p>
     </div>
 
-    <form>
-      <div class="col-md-4 d-flex">
+    <form class="justify-self-center bookings">
+      <div class="form-group">
         <input
           type="text"
           class="form-control pl-2"
@@ -36,8 +44,7 @@
         />
       </div>
 
-      <div class="form-group d-flex">
-        <div class="input-group-prepend active"></div>
+      <div class="form-group">
         <input
           type="email"
           class="form-control pl-2"
@@ -67,20 +74,33 @@
           placeholder="Enter your message here..."
           required
         ></textarea>
-        <button type="submit" class="btn align-self-center">Submit</button>
+        <button type="submit" class="btn">Submit</button>
       </div>
     </form>
 
-    <div>
-      <p></p>
+    <div class="third-section col-md-4">
+      <p>
+        Add your details and you'll receive our quarterly email, including what
+        events we will be holding, our price discounts, current offers, updates
+        on new posts and the community building actiivities around Halisi
+        Studios.
+      </p>
       <div class="form-group">
+        <label for="exampleInputEmail1" class="py-1 text-left d-flex"
+          ><span>Subscribe to our newsletter !</span></label
+        >
         <input
           type="email"
-          class="form-control"
+          class="form-control pl-2"
           id="newsletterEmail"
           aria-describedby="emailHelp"
           placeholder="Your Email Address"
+          required
         />
+        <button class="btn d-block" type="submit">Subscribe</button>
+      </div>
+      <div class="slogan">
+        <p>"Halisi studios slogan could go here.."</p>
       </div>
     </div>
   </div>
@@ -144,18 +164,15 @@ span
 
   h2
     @extend h1
-    font-size: 2.8rem
+    font-size: 3rem
     text-align: left
-    padding-block: .7rem
-    margin-left: 6.5em
-
-    &:nth-child(1)
-      line-height: 1.4em
-      padding-block: .4rem
+    padding-block: .5rem
+    margin-left: 5.5em
+    margin-top: .05em
 
     &:nth-child(2)
       justify-self: end
-      margin-left: 2em
+      margin-left: 1em
 
   & > p
     position: absolute
@@ -163,10 +180,11 @@ span
     left: 16vw
 
 .form-section-container
-  display: grid
-  grid-template-columns: repeat(3,1fr)
-  grid-column-gap: 8em
-  margin-left: 6em
+  // display: grid
+  // grid-template-columns: repeat(3,1fr)
+  // grid-column-gap: 8em
+  margin-left: 10.5em
+  // margin-inline: 2em
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
@@ -184,7 +202,7 @@ span
   ::-ms-input-placeholder
     color: $midGray
 
-  .form-control
+  .bookings .form-control
     width: 16em
     height: 2em
     background-color: $darkGray
@@ -194,9 +212,8 @@ span
     caret-color: $yellow
 
     &:active, &:focus
-      border-left: .5em solid $yellow
+      border-left: .5em solid lighten($yellow,30%)
       box-shadow: $yellow
-
 
   input, textarea
     padding-left: 1em
@@ -213,14 +230,14 @@ span
     width: 20em !important
     font-weight: normal !important
 
-
-  .form-group button
+  .bookings button
     border-top-left-radius: 0
     border-top-right-radius: 0
+    padding: 0
+    margin: 0
     font-weight: bold
     color: $darkGray
-    background-color: $yellow
-    justify-self: center
+    background-color: lighten($yellow,30%)
     width: 20em
     &:hover
       background-color: lighten($yellow,10%)
@@ -236,4 +253,52 @@ span
     text-align: right !important
     font-size: .9rem
 
+/* Email subscription and company slogan */
+.third-section
+  padding: 0
+  margin: 0
+  justify-self: end
+  margin-top: -2em
+
+  .form-group
+    input
+      border: none
+      border-left: .5em solid lighten($yellow,30%)
+      background-color: $darkGray
+
+    button
+      float: right
+      margin-top: .1rem
+      border: $yellow
+      box-shadow: none
+      background-color: $yellow
+      color: $darkGray
+      font-weight: bold
+
+      &:hover, &:active
+        background-color: darken($yellow, 10%)
+
+      &:focus
+        background-color: darken($yellow, 30%)
+
+  p
+    line-height: 1rem
+    text-align: left
+    font-size: .9rem
+
+  .slogan
+    border-left: 4px solid $yellow
+    width: .08rem
+    height: 1.2rem
+    margin-top: 4em
+    border-radius: 25px
+
+    p
+      margin-left: .4em
+      line-height: .8em
+      font-size: .9em
+      white-space: nowrap
+
+    p:hover
+      background-color: red
 </style>

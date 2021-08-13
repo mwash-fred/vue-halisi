@@ -20,10 +20,10 @@ div
   position: absolute
   // width: 75vw
   top: 50%
-  left: 35%
+  left: 34%
   transform: translate(0, -50%)
 
-  width: 65vw
+  width: 66vw
   height: .1rem
   background-image: linear-gradient(to right, $midGray 0%, $midGray 50%, transparent 50%)
   background-size: 10px .08px
