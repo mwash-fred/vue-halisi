@@ -140,10 +140,6 @@ h1
   font-family: $secondaryFont
   font-size: 3.5rem
 
-h1:nth-child(3)
-  -webkit-text-fill-color: transparent
-  -webkit-text-stroke: .05rem white
-
 span
   -webkit-text-fill-color: $yellow
   -webkit-text-stroke: 0px white
@@ -160,6 +156,9 @@ span
   text-align: right
   margin-inline-end: 3.5vw
   margin-top: .6em
+  -webkit-text-fill-color: transparent
+  -webkit-text-stroke: .04rem white
+
 
 .headings
   display: flex
@@ -302,7 +301,7 @@ span
       line-height: .8em
       font-size: .9em
       white-space: nowrap
-
-    p:hover
-      background-color: red
+      
+      &:hover
+        color: red !important
 </style>

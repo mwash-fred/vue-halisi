@@ -15,7 +15,7 @@ export default class Sidebar extends Vue {}
 @import '@/assets/_config.sass'
 
 img
-  height: 100vh
+  height: 100%
   position: absolute
   left: 0
   top: 0

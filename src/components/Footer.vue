@@ -37,6 +37,7 @@ footer
   position: fixed
   bottom: 0
   padding-block: 1em
+  z-index: 999999
 
   a
     padding-inline: .8em

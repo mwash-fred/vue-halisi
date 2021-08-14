@@ -6,7 +6,7 @@
       <div class="bottom"></div>
     </div>
   </div>
-  <router-link class="text-center" to="/">Halisi Studios</router-link>
+  <router-link to="/">Halisi Studios</router-link>
 </template>
 
 <script lang="ts">
@@ -27,8 +27,6 @@ export default class Sidebar extends Vue {
 <style lang="sass" scoped>
 @import '@/assets/_config.sass'
 
-.text-center
-
 .wrapper
   margin-inline: 3em
   padding-top: .5em
@@ -37,25 +35,26 @@ export default class Sidebar extends Vue {
 a
   font-size: 1.8rem
   font-family: $secondaryFont
-  margin-top: 10em
+  // margin-top: 10em
 
 h1
   font-family: $secondaryFont
   font-size: 2em
-  z-index: 2
+  z-index: 10
 
 .hamburgerIcon
   margin-top: .8em
+  z-index: 10
 
   div
-    width: 2.2rem
-    height: .2rem
-    margin-block: .4em
+    width: 2rem
+    height: .21rem
+    margin-block: .3em
     background-color: white
     border-radius: 25px
 
   div:nth-child(2)
     margin-left: .6rem
-    width: 1.6rem
+    width: 1.4rem
 </style>
 

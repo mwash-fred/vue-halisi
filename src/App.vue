@@ -1,9 +1,8 @@
 <template>
   <div id="nav">
     <Mouse />
-    <!-- <Menu /> -->    
     <Sidebar />
-    <!-- <Menu /> -->
+    <Menu />
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
   </div>

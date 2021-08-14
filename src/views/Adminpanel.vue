@@ -101,7 +101,8 @@ a
     object-fit: cover
 
   .one h1
-    padding: .1em
+    font-size: 3em
+    padding: .01em
     margin-top: 40vh
 
   .overlay-text
