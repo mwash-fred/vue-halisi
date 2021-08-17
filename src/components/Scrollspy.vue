@@ -13,10 +13,11 @@ export default {
 
 <style lang="sass" scoped>
 @import '@/assets/_config.sass'
+
 div
     position: absolute
     margin: auto
-    bottom: 5%
+    bottom: 4%
     left: 50%
 
     .scrollspy

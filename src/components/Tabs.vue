@@ -1,20 +1,19 @@
 <template>
   <ul class="list-group list-group-flush">
-      <li class="list-group-item"></li>
-      <li class="list-group-item"></li>
-      <li class="list-group-item"></li>
-      <li class="list-group-item"></li>
-      <li class="list-group-item"></li>
-      <li class="list-group-item"></li>
-      <li class="list-group-item"></li>
-      <li class="list-group-item"></li>
-      <li class="list-group-item"></li>
+    <li class="list-group-item"  v-for="tab in tabs" :key="tab.id"></li>
   </ul>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
 
+@Options({
+  name: 'Tabs',
+  props: {
+    tabs: Array
+  }
+})
+export default class Tabs extends Vue {
 }
 </script>
 
@@ -34,5 +33,11 @@ ul
     width: 6em
     background: $darkGray
     margin-inline: .2rem
+    padding: 0
+
+    img
+      width: 100%
+      height: inherit
+      object-fit: cover
 
 </style>

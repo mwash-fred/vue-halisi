@@ -9,7 +9,7 @@
     </h1>
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
-    <Tabs />
+    <Tabs :tabs="categories" />
     <div class="info">
       <p>Scroll Down</p>
       <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -38,6 +38,40 @@ import Footer from "@/components/Footer.vue";
     HelloWorld,
     Scrollspy,
     Footer
+  },
+  data() {
+    return {
+      categories: []
+    }
+  },
+  methods: {
+    toggleMenu() {
+      console.log("Show the damn menu..");
+    },
+  },
+  created () {
+    this.categories = [
+      {
+        id: 1,
+        title: 'Portrait',
+        image: '',
+      },
+      {
+        id: 2,
+        title: 'Weddings',
+        image: '',
+      },
+      {
+        id: 3,
+        title: 'Nature Trail',
+        image: '',
+      },
+      {
+        id: 4,
+        title: 'Nature Trail',
+        image: '',
+      }
+    ]
   },
 })
 export default class Home extends Vue {}

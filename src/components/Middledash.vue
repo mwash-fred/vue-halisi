@@ -24,13 +24,13 @@ div
   transform: translate(0, -50%)
 
   width: 66vw
-  height: .1rem
-  background-image: linear-gradient(to right, $midGray 0%, $midGray 50%, transparent 50%)
+  height: .01rem
+  background-image: linear-gradient(to right, $ashGray 0%, $ashGray 50%, transparent 50%)
   background-size: 10px .08px
   background-repeat: repeat-x
 
   .tab
-    border-left: 2px solid $midGray
+    border-left: 2px solid $ashGray
     border-radius: 25px
     left: 0
     width: .08rem

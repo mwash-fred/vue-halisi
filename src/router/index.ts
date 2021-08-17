@@ -18,26 +18,23 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/contact',
     name: 'Contact',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Contact.vue')
   },
   {
     path: '/Section',
     name: 'Section',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+
     component: () => import(/* webpackChunkName: "about" */ '../views/Section.vue')
   },
   {
     path: '/adminpanel',
     name: 'Adminpanel',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/Adminpanel.vue')
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Dashboard.vue')
   }
 ]
 

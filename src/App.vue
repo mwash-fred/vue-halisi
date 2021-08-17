@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <Mouse />
+    <Mouse @before-enter="beforeEnter" @enter="enter"/>
     <Sidebar />
     <!-- <Menu /> -->
     <!-- <router-link to="/">Home</router-link> |
@@ -14,6 +14,7 @@ import { Options, Vue } from "vue-class-component";
 import Mouse from "@/components/Mouse.vue";
 import Menu from "@/views/Menu.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import gsap from "gsap";
 
 @Options({
   components: {
@@ -21,10 +22,17 @@ import Sidebar from "@/components/Sidebar.vue";
     Menu,
     Sidebar,
   },
-  methods: {
-    toggleMenu() {
-      console.log("Show the damn menu..");
-    },
+  setup() {
+    const beforeEnter = (el) => {
+      console.log('mouse hasn\'t entered');
+      el.style.opacity = 0
+    }
+    const enter = (el) => {
+      console.log('mouse has entered');
+      gsap.to(el,{opacity: 1, yPercent: 20, duration: 1})
+    }
+    
+    return{beforeEnter, enter}
   },
 })
 export default class Home extends Vue {}
@@ -32,6 +40,7 @@ export default class Home extends Vue {}
 
 <style lang="sass">
 @import '@/assets/_config.sass'
+
 // *
   user-drag: none
   user-select: none

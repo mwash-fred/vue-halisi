@@ -1,18 +1,21 @@
 <template>
-  <div class="newCursor"></div>
+  <!-- <transition appear @before-enter="beforeEnter" @enter="enter"> @before-enter="$emit('before-enter')" @enter="$emit('enter')" -->
+    <div class="newCursor" @before-enter="$emit('before-enter')" @enter="$emit('enter')"></div>
+  <!-- </transition> -->
 </template>
 
-<script>
-export default {
-  name: 'Mouse',
-  methods: {
-    // const cursor = document.querySelector(".newCursor"),
-    // document.addEventListener("mousemove", e => {
-    // cursor.setAttribute( "style", "left: "+(e.clientX - 2.5)+"px; top:"+(e.clientY - 2.5)+"px;");
-    // })
-  }
+
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+
+@Options({
+  name: "Mouse",
+  emits: ["before-enter","enter"],
+})
+export default class Mouse extends Vue {
 }
 </script>
+
 
 <style lang="sass" scoped>
 div

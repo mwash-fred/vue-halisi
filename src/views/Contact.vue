@@ -1,5 +1,5 @@
 <template>
-  <Header title="Contact"/> <!-- Include this class @toggle-menu="toggleMenu" -->
+  <Header title="Contact"  @toggle-menu="toggleMenu"/> <!-- Include this class @toggle-menu="toggleMenu" -->
   
   <h1 class="payment text-left">Till No: <br /><span>000000</span></h1>
   <h1 class="title">Get in <span>touch</span></h1>
@@ -43,6 +43,7 @@
           id="validationServer01"
           placeholder="Your Name"
           required
+          v-model="userInfo.name"
         />
       </div>
 
@@ -101,9 +102,7 @@
         />
         <button class="btn d-block" type="submit">Subscribe</button>
       </div>
-      <div class="slogan">
-        <p>"Halisi studios slogan could go here.."</p>
-      </div>
+      <p class="slogan">"Halisi studios slogan could go here.."</p>
     </div>
   </div>
 
@@ -122,6 +121,21 @@ import Header from "@/components/Header.vue"
     Header,
     Middledash,
     Footer,
+  },
+  data () {
+    return {
+      userInfo : {
+        name: 'Timothy Davis',
+        email: 'thehilltimmy@gmail.com',
+        phone: '+25717846486',
+        message: 'I\'d like to make a booking for 29th October',
+      }
+    }
+  },
+  methods: {
+    toggleMenu() {
+      console.log("Show the damn menu..");
+    },
   },
 })
 export default class Home extends Vue {}
@@ -290,17 +304,13 @@ span
     font-size: .9rem
 
   .slogan
-    border-left: 4px solid $yellow
-    width: .08rem
-    height: 1.2rem
     margin-top: 4em
-    border-radius: 25px
 
-    p
-      margin-left: .4em
-      line-height: .8em
-      font-size: .9em
-      white-space: nowrap
+    &:before
+      content: ''
+      border-left: 4px solid $yellow
+      border-radius: 25px
+      margin-right: .4rem
       
       &:hover
         color: red !important

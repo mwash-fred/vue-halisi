@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vue logo" src="../assets/sidebar.png" />
+  <img alt="sidebar-logo" src="../assets/sidebar.png" />
 </template>
 
 <script lang="ts">
