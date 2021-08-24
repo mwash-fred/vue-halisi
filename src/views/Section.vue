@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="background-cover">
     <div class="d-flex flex-column">
 

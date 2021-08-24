@@ -1,6 +1,6 @@
 <template>
   <div class="Team">
-    <Header title="The Team"  @toggle-menu="toggleMenu"/>
+    <Header title="The Team"/>
 
     <div class="container-fluid text-middle d-flex"></div>
 
@@ -62,9 +62,6 @@ import Footer from "@/components/Footer.vue";
     Footer,
   },
   methods: {
-    toggleMenu() {
-      console.log("Show the damn menu..");
-    },
   },
 })
 export default class Home extends Vue {}

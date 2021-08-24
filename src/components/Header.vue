@@ -1,23 +1,29 @@
 <template>
   <div class="wrapper d-flex justify-content-between">
     <h1>{{ title }}</h1>
-    <div class="hamburgerIcon" @click="$emit('toggle-menu')">
+    <div class="hamburgerIcon" @mouseover="$emit('hovered-here')" @mouseleave="$emit('hovered-outta-here')" @click="toggleMenu"> <!--@click="toggleMenu"-->
       <div class="top"></div>
       <div class="bottom"></div>
     </div>
   </div>
-  <router-link to="/">Halisi Studios</router-link>
+  <router-link to="/" @mouseover="$emit('hovered-here')" @mouseleave="$emit('hovered-outta-here')">Halisi Studios</router-link>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+
 
 @Options({
   name: "Header",
   props: {
     title: String,
   },
-  emits: ["toggle-menu"],
+  methods: {
+    toggleMenu() {
+      console.log("Show the damn menu..");
+    },
+  },
+  emits: ["hovered-here","hovered-outta-here"],
 })
 export default class Sidebar extends Vue {
   title!: string;

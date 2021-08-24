@@ -1,5 +1,6 @@
 <template>
-  <Header title="Contact"  @toggle-menu="toggleMenu"/> <!-- Include this class @toggle-menu="toggleMenu" -->
+  <Mouse :style="{'--my-var': myVar }"/>
+  <Header title="Contact" @hovered-here="mouseOverHere" @hovered-outta-here="mouseOuttaHere"/> <!-- Include this class @toggle-menu="toggleMenu" -->
   
   <h1 class="payment text-left">Till No: <br /><span>000000</span></h1>
   <h1 class="title">Get in <span>touch</span></h1>
@@ -28,7 +29,8 @@
         STUDIO : <br />Nairobi, NRB<br />
         +254 711 111 111 <br />
         <span
-          ><a href="mailto:inquiry@halisistudios.co.ke">
+          ><a href="mailto:inquiry@halisistudios.co.ke" @mouseover="mouseOverHere" 
+          @mouseleave="mouseOuttaHere">
             Inquiry@Halisistudios.co.ke</a
           ></span
         ><br /><br />PRESS :<br />Residential Area
@@ -44,6 +46,8 @@
           placeholder="Your Name"
           required
           v-model="userInfo.name"
+          @mouseover="mouseOverHere" 
+          @mouseleave="mouseOuttaHere"
         />
       </div>
 
@@ -54,6 +58,8 @@
           id="bookingEmail"
           aria-describedby="emailHelp"
           placeholder="Your Email Address"
+          @mouseover="mouseOverHere" 
+          @mouseleave="mouseOuttaHere"
           required
         />
       </div>
@@ -65,6 +71,8 @@
           id="tel"
           aria-describedby="telephone"
           placeholder="Your Phone Number"
+          @mouseover="mouseOverHere" 
+          @mouseleave="mouseOuttaHere"
           required
         />
       </div>
@@ -89,7 +97,7 @@
         Studios.
       </p>
       <div class="form-group">
-        <label for="exampleInputEmail1" class="py-1 text-left d-flex"
+        <label for="newsletterEmail" class="py-1 text-left d-flex"
           ><span>Subscribe to our newsletter !</span></label
         >
         <input
@@ -98,6 +106,8 @@
           id="newsletterEmail"
           aria-describedby="emailHelp"
           placeholder="Your Email Address"
+          @mouseover="mouseOverHere" 
+          @mouseleave="mouseOuttaHere"
           required
         />
         <button class="btn d-block" type="submit">Subscribe</button>
@@ -106,24 +116,27 @@
     </div>
   </div>
 
-  <Footer />
+  <Footer @hovered-here="mouseOverHere" @hovered-outta-here="mouseOuttaHere"/>
 </template>
 
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Middledash from "@/components/Middledash.vue";
+import Mouse from "@/components/Mouse.vue"
 import Footer from "@/components/Footer.vue";
 import Header from "@/components/Header.vue"
 
 @Options({
   components: {
+    Mouse,
     Header,
     Middledash,
     Footer,
   },
   data () {
     return {
+      myVar: 1,
       userInfo : {
         name: 'Timothy Davis',
         email: 'thehilltimmy@gmail.com',
@@ -133,9 +146,12 @@ import Header from "@/components/Header.vue"
     }
   },
   methods: {
-    toggleMenu() {
-      console.log("Show the damn menu..");
+    mouseOverHere () {
+      this.myVar = 1.5;
     },
+    mouseOuttaHere () {
+      this.myVar = 1;
+    }
   },
 })
 export default class Home extends Vue {}
@@ -157,7 +173,7 @@ h1
 span
   -webkit-text-fill-color: $yellow
   -webkit-text-stroke: 0px white
-  color: $yellow
+  // color: $yellow
   white-space: nowrap
 
 .payment
@@ -172,7 +188,6 @@ span
   margin-top: .6em
   -webkit-text-fill-color: transparent
   -webkit-text-stroke: .04rem white
-
 
 .headings
   display: flex
@@ -219,6 +234,9 @@ span
   ::-ms-input-placeholder
     color: $midGray
 
+  .text-section a
+    cursor: pointer
+
   .bookings .form-control
     width: 16em
     height: 2em
@@ -227,6 +245,7 @@ span
     opacity: 0.8
     border-radius: .1em
     caret-color: $yellow
+    cursor: none
 
     &:active, &:focus
       border-left: .5em solid lighten($yellow,30%)
@@ -278,10 +297,20 @@ span
   margin-top: -2em
 
   .form-group
+    span
+      background-image: url('../assets/brush3.png')
+      background-repeat: no-repeat
+      background-size: 100% 95%;
+      padding: 6px
+      padding-inline: 2em
+      font-weight: bold
+      -webkit-text-fill-color: $darkGray
+
     input
       border: none
       border-left: .5em solid lighten($yellow,30%)
       background-color: $darkGray
+      cursor: none
 
     button
       float: right

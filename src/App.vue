@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <Mouse @before-enter="beforeEnter" @enter="enter"/>
+    <!-- <Mouse /> -->
     <Sidebar />
     <!-- <Menu /> -->
     <!-- <router-link to="/">Home</router-link> |
@@ -14,25 +14,12 @@ import { Options, Vue } from "vue-class-component";
 import Mouse from "@/components/Mouse.vue";
 import Menu from "@/views/Menu.vue";
 import Sidebar from "@/components/Sidebar.vue";
-import gsap from "gsap";
 
 @Options({
   components: {
     Mouse,
     Menu,
     Sidebar,
-  },
-  setup() {
-    const beforeEnter = (el) => {
-      console.log('mouse hasn\'t entered');
-      el.style.opacity = 0
-    }
-    const enter = (el) => {
-      console.log('mouse has entered');
-      gsap.to(el,{opacity: 1, yPercent: 20, duration: 1})
-    }
-    
-    return{beforeEnter, enter}
   },
 })
 export default class Home extends Vue {}
@@ -57,6 +44,7 @@ export default class Home extends Vue {}
   text-align: center
   color: $gray
   height: 100vh
+  cursor: none
 
 img
   image-rendering: optimizeQuality
@@ -67,10 +55,13 @@ html, body
   overflow-y: hidden
   height: 100vh
   width: 100vw
+  cursor: none 
 
   a
     text-decoration: none
     color: $ashGray
+    cursor: none
+
     &:hover
       color: $gray !important
 

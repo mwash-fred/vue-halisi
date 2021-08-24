@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <Header @toggle-menu="toggleMenu" title="Home"/>
+    <Mouse :style="{'--my-var': myVar }"/>
+    <Header title="Home" @hovered-here="mouseOverHere" @hovered-outta-here="mouseOuttaHere"/>
 
     <Dash />
     <h1 class="titleTag">
@@ -22,6 +23,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import Mouse from "@/components/Mouse.vue"
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import Dash from "@/components/Dash.vue";
@@ -32,6 +34,7 @@ import Footer from "@/components/Footer.vue";
 
 @Options({
   components: {
+    Mouse,
     Dash,
     Header,
     Tabs,
@@ -41,13 +44,17 @@ import Footer from "@/components/Footer.vue";
   },
   data() {
     return {
+      myVar: 1,
       categories: []
     }
   },
-  methods: {
-    toggleMenu() {
-      console.log("Show the damn menu..");
+  methods : {
+    mouseOverHere () {
+      this.myVar = 1.5;
     },
+    mouseOuttaHere () {
+      this.myVar = 1;
+    }
   },
   created () {
     this.categories = [

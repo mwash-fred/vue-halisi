@@ -1,7 +1,7 @@
 <template>
   <footer class="d-block">
     <div class="d-flex">
-      <ul class="socials">
+      <ul class="socials" @mouseover="$emit('hovered-here')" @mouseleave="$emit('hovered-outta-here')">
         <li>
           <router-link to="/"><i class="fab fa-instagram"></i></router-link>
         </li>
@@ -15,17 +15,21 @@
     </div>
 
     <div class="policies d-flex">
-      <router-link to="/"> Privacy policy </router-link>
-      <router-link to="/Contact">Contact</router-link>
+      <router-link to="/" @mouseover="$emit('hovered-here')" @mouseleave="$emit('hovered-outta-here')"> Privacy policy </router-link>
+      <router-link to="/Contact" @mouseover="$emit('hovered-here')" @mouseleave="$emit('hovered-outta-here')">Contact</router-link>
       <div class="ref">Copyright &copysr; 2021</div>
     </div>
   </footer>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { Options, Vue } from "vue-class-component";
+
+@Options({
   name: "Footer",
-};
+  emits: ["hovered-here","hovered-outta-here"],
+})
+export default class Footer extends Vue {}
 </script>
 
 <style lang="sass" scoped>
