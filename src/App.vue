@@ -54,7 +54,8 @@ html, body
   padding: 0
   overflow-y: hidden
   height: 100vh
-  width: 100vw
+  min-width: 100vw
+  width: fit-content
   cursor: none 
 
   a

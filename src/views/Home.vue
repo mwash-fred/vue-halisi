@@ -2,8 +2,8 @@
   <div class="home">
     <Mouse :style="{'--my-var': myVar }"/>
     <Header title="Home" @hovered-here="mouseOverHere" @hovered-outta-here="mouseOuttaHere"/>
-
     <Dash />
+
     <h1 class="titleTag">
       <div>Halisi Studios Halisi Studios Halisi Studios</div>
       <div>Halisi Studios Halisi Studios Halisi Studios</div>
@@ -75,7 +75,42 @@ import Footer from "@/components/Footer.vue";
       },
       {
         id: 4,
-        title: 'Nature Trail',
+        title: 'Studio shots',
+        image: '',
+      },
+      {
+        id: 5,
+        title: 'Videography',
+        image: '',
+      },
+      {
+        id: 6,
+        title: 'Music',
+        image: '',
+      },
+      {
+        id: 7,
+        title: 'Music',
+        image: '',
+      },
+      {
+        id: 8,
+        title: 'Music',
+        image: '',
+      },
+      {
+        id: 9,
+        title: 'Music',
+        image: '',
+      },
+      {
+        id: 10,
+        title: 'Music',
+        image: '',
+      },
+      {
+        id: 11,
+        title: 'Music',
         image: '',
       }
     ]
@@ -104,7 +139,11 @@ export default class Home extends Vue {}
     transform: rotate(-90deg) translateX(-100%)
 
 .info
-  margin-top: 4.5em
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translate(-50%,0)
+  margin-bottom: 3em
 
   p
     margin: 0

@@ -12,11 +12,11 @@ export default {
 @import '@/assets/_config.sass'
 
 .dash
-  margin-top: 3em
+  margin-top: 16vh
   margin-left: 35vw
 
   height: .1rem
-  background-image: linear-gradient(to right, $gray 0%, $gray 50%, transparent 50%)
+  background-image: linear-gradient(to right, $ashGray 0%, $ashGray 50%, transparent 50%)
   background-size: 14px 1px
   background-repeat: repeat-x
 </style>

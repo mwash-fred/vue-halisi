@@ -2,8 +2,11 @@
   <Mouse :style="{'--my-var': myVar }"/>
   <Header title="Contact" @hovered-here="mouseOverHere" @hovered-outta-here="mouseOuttaHere"/> <!-- Include this class @toggle-menu="toggleMenu" -->
   
-  <h1 class="payment text-left">Till No: <br /><span>000000</span></h1>
-  <h1 class="title">Get in <span>touch</span></h1>
+  <div class="wrapper pt-5">
+    <h1 class="payment text-left">Till No: <br /><span>000000</span></h1>
+    <h1 class="title">Get in <span>touch</span></h1>
+  </div>
+  
 
   <Middledash />
   <div class="container headings">
@@ -188,6 +191,7 @@ span
   margin-top: .6em
   -webkit-text-fill-color: transparent
   -webkit-text-stroke: .04rem white
+  margin-bottom: .25em
 
 .headings
   display: flex
@@ -200,7 +204,6 @@ span
     text-align: left
     padding-block: .5rem
     margin-left: 5.5em
-    margin-top: .05em
 
     &:nth-child(2)
       justify-self: end

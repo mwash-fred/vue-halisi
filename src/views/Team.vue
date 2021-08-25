@@ -5,7 +5,7 @@
     <div class="container-fluid text-middle d-flex"></div>
 
     <div class="row container-fluid">
-      <div class="col-sm-3">col-sm-4</div>
+      <div class="col-sm-3"></div>
 
       <div class="col-sm-9 d-flex">
         <img alt="newt" src="../assets/newt.jpg" />
@@ -78,7 +78,7 @@ img
 
 .container-fluid
   margin-left: -3vw !important
-  transform: translateY(12.5%)
+  transform: translateY(25%)
   padding: 0
   margin: 0
 
@@ -90,7 +90,7 @@ img
     font-family: $secondaryFont
     font-size: 7rem
     -webkit-text-fill-color: transparent
-    -webkit-text-stroke: .1rem $darkGray
+    -webkit-text-stroke: .3px $midGray
     margin-top: -1.6rem
     margin-bottom: 2.4rem
 
