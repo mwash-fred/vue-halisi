@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid main-menu">
     <div class="slide">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
@@ -17,7 +17,7 @@
         </li>
 
         <li class="list-group-item d-flex">
-          <router-link to="/story" class="d-flex">
+          <router-link to="/" class="d-flex">
             <div class="card text-start">
               <h1>Our Story</h1>
               <p>All about halisi and how it <br />was started.</p>
@@ -82,17 +82,22 @@ import Dash from "@/components/Dash.vue";
     Dash,
   },
 })
-export default class Home extends Vue {}
+export default class Menu extends Vue {}
 </script>
 
 <style lang="sass" scoped>
 @import '@/assets/_config.sass'
 
 *
-  color: white
+  color: white  
+
+.main-menu
+  opacity: 0
+  transform: translateX(120%)
+
 
 .container-fluid
-  background-color: black
+  background-color: rgb(0,0,0)
   position: absolute
   height: 100vh
   width: 85.69vw
@@ -104,11 +109,13 @@ export default class Home extends Vue {}
   @extend .container-fluid
   background-color: rgba(26,70,69,.8)
   z-index: 2
+  
+  
   // overflow: scroll
 
   .list-group
     margin: 2em
-    // margin-top: 1em
+    // margin-top: 1.5em
     transform: scale(0.9)
 
     .list-group-item
@@ -164,6 +171,7 @@ export default class Home extends Vue {}
 
     &:hover
       -webkit-text-stroke: .02rem $mustard
+      cursor: url("../assets/img4.jpg"), url("../assets/img2.jpg"), pointer;
 
   .dotted
     position: absolute

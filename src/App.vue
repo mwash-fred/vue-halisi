@@ -12,8 +12,10 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Mouse from "@/components/Mouse.vue";
-import Menu from "@/views/Menu.vue";
+import Menu from "@/components/Menu.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import gsap from "gsap";
+import $ from "jquery";
 
 @Options({
   components: {
@@ -21,6 +23,14 @@ import Sidebar from "@/components/Sidebar.vue";
     Menu,
     Sidebar,
   },
+  data() {
+    return {
+    };
+  },
+  // methods: {
+  //   },
+
+    
 })
 export default class Home extends Vue {}
 </script>
@@ -28,13 +38,16 @@ export default class Home extends Vue {}
 <style lang="sass">
 @import '@/assets/_config.sass'
 
-// *
+*
   user-drag: none
   user-select: none
   -moz-user-select: none
   -webkit-user-drag: none
   -webkit-user-select: none
   -ms-user-select: none
+
+::-webkit-scrollbar
+  display: none
 
 #app
   font-family: $primaryFont
@@ -56,7 +69,7 @@ html, body
   height: 100vh
   min-width: 100vw
   width: fit-content
-  cursor: none 
+  cursor: none
 
   a
     text-decoration: none
@@ -68,5 +81,4 @@ html, body
 
     &.router-link-exact-active
       color: $gray
-
 </style>

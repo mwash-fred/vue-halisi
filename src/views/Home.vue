@@ -1,7 +1,13 @@
 <template>
-  <div class="home">
-    <Mouse :style="{'--my-var': myVar }"/>
-    <Header title="Home" @hovered-here="mouseOverHere" @hovered-outta-here="mouseOuttaHere"/>
+  <div class="home" ref="home">
+    <!-- <Menu /> -->
+    <Mouse :style="{ '--my-var': myVar }" />
+    <Header
+      title="Home"
+      @hovered-here="mouseOverHere"
+      @hovered-outta-here="mouseOuttaHere"
+      
+    />
     <Dash />
 
     <h1 class="titleTag">
@@ -17,103 +23,117 @@
     </div>
     <Scrollspy />
     <Footer />
-
   </div>
 </template>
 
 <script lang="ts">
+// native
 import { Options, Vue } from "vue-class-component";
-import Mouse from "@/components/Mouse.vue"
+
+// Components
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import Header from "@/components/Header.vue";
 import Dash from "@/components/Dash.vue";
 import Tabs from "@/components/Tabs.vue";
-import Scrollspy from "@/components/Scrollspy.vue"
-import Footer from "@/components/Footer.vue";
 
+// assets
+import $ from "jquery";
+// import HorizontalScroll from "vue-horizontal-scroll";
+
+import { gsap } from "@/assets/my-gsap";
 
 @Options({
   components: {
-    Mouse,
     Dash,
-    Header,
     Tabs,
     HelloWorld,
-    Scrollspy,
-    Footer
+    // HorizontalScroll,
   },
   data() {
     return {
       myVar: 1,
-      categories: []
-    }
+      categories: [],
+    };
   },
-  methods : {
-    mouseOverHere () {
+  mounted() {
+    document.addEventListener
+    // let foot = $("li");
+    // gsap.to(foot, { xPercent: -50 });
+
+    //Horizontal scroll
+    // gsap.to($())
+
+    //scrollDown alert
+    gsap.timeline({repeat: -1})
+      .to($('.fa-angle-down'),{repeat: 3, yPercent: 80, delay: 4, duration: .5, yoyo: true})
+  },
+  methods: {
+    mouseOverHere() {
       this.myVar = 1.5;
     },
-    mouseOuttaHere () {
+    mouseOuttaHere() {
       this.myVar = 1;
-    }
+    },
+    
   },
-  created () {
-    this.categories = [
-      {
-        id: 1,
-        title: 'Portrait',
-        image: '',
-      },
-      {
-        id: 2,
-        title: 'Weddings',
-        image: '',
-      },
-      {
-        id: 3,
-        title: 'Nature Trail',
-        image: '',
-      },
-      {
-        id: 4,
-        title: 'Studio shots',
-        image: '',
-      },
-      {
-        id: 5,
-        title: 'Videography',
-        image: '',
-      },
-      {
-        id: 6,
-        title: 'Music',
-        image: '',
-      },
-      {
-        id: 7,
-        title: 'Music',
-        image: '',
-      },
-      {
-        id: 8,
-        title: 'Music',
-        image: '',
-      },
-      {
-        id: 9,
-        title: 'Music',
-        image: '',
-      },
-      {
-        id: 10,
-        title: 'Music',
-        image: '',
-      },
-      {
-        id: 11,
-        title: 'Music',
-        image: '',
-      }
-    ]
+  created() {
+    window.addEventListener("load", this.onWindowLoad),
+      (this.categories = [
+        {
+          id: 1,
+          title: "Portrait",
+          image: "",
+        },
+        {
+          id: 2,
+          title: "Weddings",
+          image: "",
+        },
+        {
+          id: 3,
+          title: "Nature Trail",
+          image: "",
+        },
+        {
+          id: 4,
+          title: "Studio shots",
+          image: "",
+        },
+        {
+          id: 5,
+          title: "Videography",
+          image: "",
+        },
+        {
+          id: 6,
+          title: "Music",
+          image: "",
+        },
+        {
+          id: 7,
+          title: "Music",
+          image: "",
+        },
+        {
+          id: 8,
+          title: "Music",
+          image: "",
+        },
+        {
+          id: 9,
+          title: "Music",
+          image: "",
+        },
+        {
+          id: 10,
+          title: "Music",
+          image: "",
+        },
+        {
+          id: 11,
+          title: "Music",
+          image: "",
+        },
+      ]);
   },
 })
 export default class Home extends Vue {}
@@ -148,6 +168,4 @@ export default class Home extends Vue {}
   p
     margin: 0
     padding: 0
-  
-
 </style>

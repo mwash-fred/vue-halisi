@@ -126,16 +126,12 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Middledash from "@/components/Middledash.vue";
-import Mouse from "@/components/Mouse.vue"
-import Footer from "@/components/Footer.vue";
-import Header from "@/components/Header.vue"
+
 
 @Options({
   components: {
-    Mouse,
-    Header,
+
     Middledash,
-    Footer,
   },
   data () {
     return {
@@ -191,7 +187,7 @@ span
   margin-top: .6em
   -webkit-text-fill-color: transparent
   -webkit-text-stroke: .04rem white
-  margin-bottom: .25em
+  margin-bottom: .35em
 
 .headings
   display: flex

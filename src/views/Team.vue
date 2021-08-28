@@ -1,5 +1,6 @@
 <template>
   <div class="Team">
+    <Mouse />
     <Header title="The Team"/>
 
     <div class="container-fluid text-middle d-flex"></div>
@@ -50,16 +51,10 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Middledash from "@/components/Middledash.vue";
-import Header from "@/components/Header.vue";
-import Scrollspy from "@/components/Scrollspy.vue";
-import Footer from "@/components/Footer.vue";
 
 @Options({
   components: {
-    Header,
     Middledash,
-    Scrollspy,
-    Footer,
   },
   methods: {
   },

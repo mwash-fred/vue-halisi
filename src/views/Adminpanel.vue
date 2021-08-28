@@ -62,12 +62,10 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Header from "@/components/Header.vue";
 
 @Options({
   name: "Adminpanel",
   components: {
-    Header,
   },
 })
 export default class Admin extends Vue {}

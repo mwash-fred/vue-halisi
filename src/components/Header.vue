@@ -24,24 +24,21 @@
         >Halisi Studios</router-link
       >
       </div>
-      
     </div>
-  </div>
+    <Menu />
 
-  <Menu />
+  </div>
 </template>
 
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Menu from "@/views/Menu.vue";
 import gsap from "gsap";
 import $ from "jquery";
 
 @Options({
   name: "Header",
   components: {
-    Menu,
   },
   data() {
     return {
@@ -59,16 +56,18 @@ import $ from "jquery";
           transformOrigin: "80% 40%",
           duration: 0.8,
         });
+        gsap.to($('.main-menu'), {xPercent: -120, autoAlpha: 1});
         this.rotation = 1;
+        
       } else {
         gsap.to($(".hamburgerIcon"), {
           rotate: "0",
           transformOrigin: "80% center",
           duration: 0.8,
         });
+        gsap.to($('.main-menu'), {xPercent: 0, autoAlpha: 0});
         this.rotation = 0;
       }
-      // console.log("Show the damn menu..");
     },
   },
   emits: ["hovered-here", "hovered-outta-here"],
