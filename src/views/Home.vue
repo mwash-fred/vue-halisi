@@ -1,13 +1,7 @@
 <template>
   <div class="home" ref="home">
-    <!-- <Menu /> -->
     <Mouse :style="{ '--my-var': myVar }" />
-    <Header
-      title="Home"
-      @hovered-here="mouseOverHere"
-      @hovered-outta-here="mouseOuttaHere"
-      
-    />
+    <Header title="Home" />
     <Dash />
 
     <h1 class="titleTag">
@@ -55,25 +49,34 @@ import { gsap } from "@/assets/my-gsap";
     };
   },
   mounted() {
-    document.addEventListener
     // let foot = $("li");
     // gsap.to(foot, { xPercent: -50 });
 
-    //Horizontal scroll
-    // gsap.to($())
+    //Cursor grow on hover
+    var links = [$("a"),$(".hamburgerIcon")];
+    links.forEach((el) => {
+      el.mouseover(this.mouseHovered);
+      el.mouseleave(this.mouseExit);
+    });
 
     //scrollDown alert
-    gsap.timeline({repeat: -1})
-      .to($('.fa-angle-down'),{repeat: 3, yPercent: 80, delay: 4, duration: .5, yoyo: true})
+    gsap
+      .timeline({ repeat: -1 })
+      .to($(".fa-angle-down"), {
+        repeat: 3,
+        yPercent: 80,
+        delay: 4,
+        duration: 0.5,
+        yoyo: true,
+      });
   },
   methods: {
-    mouseOverHere() {
+    mouseHovered() {
       this.myVar = 1.5;
     },
-    mouseOuttaHere() {
+    mouseExit() {
       this.myVar = 1;
     },
-    
   },
   created() {
     window.addEventListener("load", this.onWindowLoad),

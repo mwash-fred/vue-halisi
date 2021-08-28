@@ -1,6 +1,6 @@
 <template>
   <div class="Team">
-    <Mouse />
+    <Mouse :style="{ '--my-var': myVar }" />
     <Header title="The Team"/>
 
     <div class="container-fluid text-middle d-flex"></div>
@@ -51,12 +51,31 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Middledash from "@/components/Middledash.vue";
+import $ from 'jquery';
 
 @Options({
   components: {
     Middledash,
   },
+  data() {
+    return {
+      myVar: 1,
+    }
+  },
+  mounted () {
+    var links = [$("a"),$(".hamburgerIcon")];
+    links.forEach((el) => {
+      el.mouseover(this.mouseHovered);
+      el.mouseleave(this.mouseExit);
+    });
+  },
   methods: {
+     mouseHovered() {
+      this.myVar = 1.5;
+    },
+    mouseExit() {
+      this.myVar = 1;
+    },
   },
 })
 export default class Home extends Vue {}

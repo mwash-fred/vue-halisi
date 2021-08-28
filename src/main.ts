@@ -18,7 +18,6 @@ const app = createApp(App)
 app.component('Menu', Menu)
 app.component('Mouse', Mouse)
 app.component('Header', Header)
-app.component('Footer', Footer)
 app.component('Scrollspy', Scrollspy)
 app.component('Footer', Footer)
 

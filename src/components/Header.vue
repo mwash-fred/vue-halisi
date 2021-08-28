@@ -1,32 +1,20 @@
 <template>
   <div class="wrapper">
     <div class="d-block">
-      
       <div class="d-flex layer1">
-        <h1 class="">{{ title }}</h1>
+        <h1>{{ title }}</h1>
 
-        <div
-          class="hamburgerIcon"
-          @mouseover="$emit('hovered-here')"
-          @mouseleave="$emit('hovered-outta-here')"
-          @click="toggleMenu"
-        >
+        <div class="hamburgerIcon" @click="toggleMenu">
           <div class="top"></div>
           <div class="bottom"></div>
         </div>
       </div>
 
       <div class="title">
-        <router-link
-        to="/"
-        @mouseover="$emit('hovered-here')"
-        @mouseleave="$emit('hovered-outta-here')"
-        >Halisi Studios</router-link
-      >
+        <router-link to="/">Halisi Studios</router-link>
       </div>
     </div>
     <Menu />
-
   </div>
 </template>
 
@@ -38,8 +26,7 @@ import $ from "jquery";
 
 @Options({
   name: "Header",
-  components: {
-  },
+  components: {},
   data() {
     return {
       rotation: 0,
@@ -54,23 +41,22 @@ import $ from "jquery";
         gsap.to($(".hamburgerIcon"), {
           rotate: "35",
           transformOrigin: "80% 40%",
-          duration: 0.8,
+          duration: 0.4,
         });
-        gsap.to($('.main-menu'), {xPercent: -120, autoAlpha: 1});
+        gsap.to($(".main-menu"), { xPercent: -120, autoAlpha: 1 });
         this.rotation = 1;
-        
       } else {
         gsap.to($(".hamburgerIcon"), {
           rotate: "0",
           transformOrigin: "80% center",
-          duration: 0.8,
+          duration: 0.4,
         });
-        gsap.to($('.main-menu'), {xPercent: 0, autoAlpha: 0});
+        gsap.to($(".main-menu"), { xPercent: 0, autoAlpha: 0 });
         this.rotation = 0;
       }
     },
   },
-  emits: ["hovered-here", "hovered-outta-here"],
+
 })
 export default class Sidebar extends Vue {
   title!: string;
@@ -88,7 +74,6 @@ export default class Sidebar extends Vue {
   // width: 100vw
   padding-top: .4em
   // margin-bottom: -1em
-
 
 h1 //Page Title
   font-family: $secondaryFont

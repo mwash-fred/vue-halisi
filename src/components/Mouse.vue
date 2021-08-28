@@ -2,7 +2,6 @@
     <div class="newCursor" :style="moveNewCursor"></div> 
 </template>
 
-
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 

@@ -5,22 +5,17 @@
     <!-- <Menu /> -->
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
+    <Footer />
   </div>
   <router-view />
 </template>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Mouse from "@/components/Mouse.vue";
-import Menu from "@/components/Menu.vue";
 import Sidebar from "@/components/Sidebar.vue";
-import gsap from "gsap";
-import $ from "jquery";
 
 @Options({
   components: {
-    Mouse,
-    Menu,
     Sidebar,
   },
   data() {

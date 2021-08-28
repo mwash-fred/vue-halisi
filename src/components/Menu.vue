@@ -95,7 +95,6 @@ export default class Menu extends Vue {}
   opacity: 0
   transform: translateX(120%)
 
-
 .container-fluid
   background-color: rgb(0,0,0)
   position: absolute
@@ -109,8 +108,6 @@ export default class Menu extends Vue {}
   @extend .container-fluid
   background-color: rgba(26,70,69,.8)
   z-index: 2
-  
-  
   // overflow: scroll
 
   .list-group
@@ -128,7 +125,8 @@ export default class Menu extends Vue {}
       font-family: $secondaryFont
 
     li
-      background: transparent
+      background: red
+      padding: 0
 
       .card
         background-color: rgba(255,255,255,.2)

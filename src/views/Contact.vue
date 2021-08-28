@@ -1,12 +1,11 @@
 <template>
-  <Mouse :style="{'--my-var': myVar }"/>
-  <Header title="Contact" @hovered-here="mouseOverHere" @hovered-outta-here="mouseOuttaHere"/> <!-- Include this class @toggle-menu="toggleMenu" -->
-  
+  <Mouse :style="{ '--my-var': myVar }" />
+  <Header title="Contact" />
+
   <div class="wrapper pt-5">
     <h1 class="payment text-left">Till No: <br /><span>000000</span></h1>
     <h1 class="title">Get in <span>touch</span></h1>
   </div>
-  
 
   <Middledash />
   <div class="container headings">
@@ -32,8 +31,7 @@
         STUDIO : <br />Nairobi, NRB<br />
         +254 711 111 111 <br />
         <span
-          ><a href="mailto:inquiry@halisistudios.co.ke" @mouseover="mouseOverHere" 
-          @mouseleave="mouseOuttaHere">
+          ><a href="mailto:inquiry@halisistudios.co.ke">
             Inquiry@Halisistudios.co.ke</a
           ></span
         ><br /><br />PRESS :<br />Residential Area
@@ -49,8 +47,6 @@
           placeholder="Your Name"
           required
           v-model="userInfo.name"
-          @mouseover="mouseOverHere" 
-          @mouseleave="mouseOuttaHere"
         />
       </div>
 
@@ -61,8 +57,6 @@
           id="bookingEmail"
           aria-describedby="emailHelp"
           placeholder="Your Email Address"
-          @mouseover="mouseOverHere" 
-          @mouseleave="mouseOuttaHere"
           required
         />
       </div>
@@ -74,8 +68,6 @@
           id="tel"
           aria-describedby="telephone"
           placeholder="Your Phone Number"
-          @mouseover="mouseOverHere" 
-          @mouseleave="mouseOuttaHere"
           required
         />
       </div>
@@ -109,8 +101,6 @@
           id="newsletterEmail"
           aria-describedby="emailHelp"
           placeholder="Your Email Address"
-          @mouseover="mouseOverHere" 
-          @mouseleave="mouseOuttaHere"
           required
         />
         <button class="btn d-block" type="submit">Subscribe</button>
@@ -119,38 +109,44 @@
     </div>
   </div>
 
-  <Footer @hovered-here="mouseOverHere" @hovered-outta-here="mouseOuttaHere"/>
+  <Footer />
 </template>
 
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Middledash from "@/components/Middledash.vue";
-
+import $ from "jquery";
 
 @Options({
   components: {
-
     Middledash,
   },
-  data () {
+  data() {
     return {
       myVar: 1,
-      userInfo : {
-        name: 'Timothy Davis',
-        email: 'thehilltimmy@gmail.com',
-        phone: '+25717846486',
-        message: 'I\'d like to make a booking for 29th October',
-      }
-    }
+      userInfo: {
+        name: "Timothy Davis",
+        email: "thehilltimmy@gmail.com",
+        phone: "+25717846486",
+        message: "I'd like to make a booking for 29th October",
+      },
+    };
+  },
+  mounted () {
+    var links = [$("a"),$(".hamburgerIcon"),$("input")];
+    links.forEach((el) => {
+      el.mouseover(this.mouseHovered);
+      el.mouseleave(this.mouseExit);
+    });
   },
   methods: {
-    mouseOverHere () {
+    mouseHovered() {
       this.myVar = 1.5;
     },
-    mouseOuttaHere () {
+    mouseExit() {
       this.myVar = 1;
-    }
+    },
   },
 })
 export default class Home extends Vue {}
@@ -299,7 +295,7 @@ span
     span
       background-image: url('../assets/brush3.png')
       background-repeat: no-repeat
-      background-size: 100% 95%;
+      background-size: 100% 95%
       padding: 6px
       padding-inline: 2em
       font-weight: bold
@@ -339,7 +335,7 @@ span
       border-left: 4px solid $yellow
       border-radius: 25px
       margin-right: .4rem
-      
+
       &:hover
         color: red !important
 </style>
