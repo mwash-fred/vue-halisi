@@ -1,11 +1,8 @@
 <template>
   <div id="nav">
-    <!-- <Mouse /> -->
     <Sidebar />
-    <!-- <Menu /> -->
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
-    <Footer />
   </div>
   <router-view />
 </template>
@@ -13,6 +10,8 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Sidebar from "@/components/Sidebar.vue";
+import $ from "jquery";
+import { gsap } from "@/assets/my-gsap";
 
 @Options({
   components: {
@@ -22,6 +21,13 @@ import Sidebar from "@/components/Sidebar.vue";
     return {
     };
   },
+  // mounted () {
+  //   const scrollContainer = $('#app');
+  //   scrollContainer.addEventListener("wheel", (evt) => {
+  //     evt.preventDefault();
+  //     scrollContainer.scrollLeft += evt.deltaY;
+  //   });
+  // },
   // methods: {
   //   },
 
@@ -35,11 +41,11 @@ export default class Home extends Vue {}
 
 *
   user-drag: none
-  user-select: none
-  -moz-user-select: none
+  // user-select: none
+  // -moz-user-select: none
   -webkit-user-drag: none
-  -webkit-user-select: none
-  -ms-user-select: none
+  // -webkit-user-select: none
+  // -ms-user-select: none
 
 ::-webkit-scrollbar
   display: none
@@ -53,6 +59,7 @@ export default class Home extends Vue {}
   color: $gray
   height: 100vh
   cursor: none
+  overflow-y: hidden
 
 img
   image-rendering: optimizeQuality

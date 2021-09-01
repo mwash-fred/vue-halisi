@@ -1,9 +1,12 @@
 <template>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item"  v-for="tab in tabs" :key="tab.id">
-      <h1 class="title-tag display-1">{{ tab.title }}</h1>
-    </li>
-  </ul>
+  <section class="tabs">
+    <ul class="list-group list-group-flush tabs">
+      <li class="list-group-item"  v-for="tab in tabs" :key="tab.id">
+        <h1 class="title-tag display-1">{{ tab.title }}</h1>
+      </li>
+    </ul>
+  </section>
+  
 </template>
 
 <script lang="ts">
@@ -31,9 +34,6 @@ ul
     flex-direction: row
     margin-top: 4em
     right: 0 !important
-
-
-
 
 .list-group-item
     position: relative

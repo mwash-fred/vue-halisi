@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper header-wrap">
     <div class="d-block">
       <div class="d-flex layer1">
         <h1>{{ title }}</h1>
@@ -43,7 +43,7 @@ import $ from "jquery";
           transformOrigin: "80% 40%",
           duration: 0.4,
         });
-        gsap.to($(".main-menu"), { xPercent: -120, autoAlpha: 1 });
+        gsap.to($(".main-menu"), { xPercent: -60, autoAlpha: 1 });
         this.rotation = 1;
       } else {
         gsap.to($(".hamburgerIcon"), {

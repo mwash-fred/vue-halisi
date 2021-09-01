@@ -1,16 +1,20 @@
 <template>
-  <div class="home" ref="home">
+  <div class="home">
+    <Sidebar />
     <Mouse :style="{ '--my-var': myVar }" />
     <Header title="Home" />
-    <Dash />
 
-    <h1 class="titleTag">
-      <div>Halisi Studios Halisi Studios Halisi Studios</div>
-      <div>Halisi Studios Halisi Studios Halisi Studios</div>
-    </h1>
-    <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
-    <Tabs :tabs="categories" />
+    <section class="scroll_container" ref="scroll_container" @mousewheel="scrollX">
+      <Dash />
+
+      <h1 class="titleTag">
+        <div>Halisi Studios Halisi Studios Halisi Studios</div>
+        <div>Halisi Studios Halisi Studios Halisi Studios</div>
+      </h1>
+      <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
+      <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
+      <Tabs :tabs="categories" />
+    </section>
     <div class="info">
       <p>Scroll Down</p>
       <i class="fa fa-angle-down" aria-hidden="true"></i>
@@ -77,6 +81,10 @@ import { gsap } from "@/assets/my-gsap";
     mouseExit() {
       this.myVar = 1;
     },
+    // scrollX(e) {
+    //   this.$refs['scroll_container'].scrollLeft += e.deltaY;
+    //   console.log('scrolling to the left')
+    // },
   },
   created() {
     window.addEventListener("load", this.onWindowLoad),
@@ -137,6 +145,10 @@ import { gsap } from "@/assets/my-gsap";
           image: "",
         },
       ]);
+    document.addEventListener('wheel', (e) => {
+      $('.scroll_container').scrollLeft += e.deltaY;
+      console.log('scrolling to the left');
+    })
   },
 })
 export default class Home extends Vue {}
@@ -145,6 +157,9 @@ export default class Home extends Vue {}
 <style lang="sass" scoped>
 @import '@/assets/_config.sass'
 
+body,
+  overflow-y: hidden !important
+  
 .titleTag div
   font-family: $secondaryFont
   position: absolute

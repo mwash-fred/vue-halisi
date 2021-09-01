@@ -72,14 +72,17 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Header from "@/components/Header.vue";
 import Dash from "@/components/Dash.vue";
+import gsap from "gsap";
+import $ from "jquery";
 
 @Options({
   name: "Menu",
   components: {
-    Header,
     Dash,
+  },
+  mounted () {
+    gsap.set($('.main-menu'),{xPercent: 60, autoAlpha: 0, visibility: 'hidden'});
   },
 })
 export default class Menu extends Vue {}
@@ -89,11 +92,12 @@ export default class Menu extends Vue {}
 @import '@/assets/_config.sass'
 
 *
-  color: white  
+  color: white
+  // visibility: hidden 
 
 .main-menu
   opacity: 0
-  transform: translateX(120%)
+  // transform: translateX(60%)
 
 .container-fluid
   background-color: rgb(0,0,0)
@@ -125,8 +129,7 @@ export default class Menu extends Vue {}
       font-family: $secondaryFont
 
     li
-      background: red
-      padding: 0
+      background: transparent
 
       .card
         background-color: rgba(255,255,255,.2)
@@ -169,7 +172,6 @@ export default class Menu extends Vue {}
 
     &:hover
       -webkit-text-stroke: .02rem $mustard
-      cursor: url("../assets/img4.jpg"), url("../assets/img2.jpg"), pointer;
 
   .dotted
     position: absolute

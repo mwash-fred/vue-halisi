@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './assets/my-gsap.js'
 import 'vue-horizontal-scroll/dist/vue-horizontal-scroll.css';
 
+import Sidebar from "@/components/Sidebar.vue";
 import Header from "@/components/Header.vue";
 import Mouse from "@/components/Mouse.vue";
 import Menu from "@/components/Menu.vue"
@@ -15,6 +16,7 @@ import Footer from "@/components/Footer.vue"
 
 const app = createApp(App)
 
+app.component('Sidebar', Sidebar)
 app.component('Menu', Menu)
 app.component('Mouse', Mouse)
 app.component('Header', Header)

@@ -1,5 +1,5 @@
 <template>
-  <img alt="sidebar-logo" src="../assets/sidebar.png" />
+  <img id="sidebar" alt="sidebar-logo" src="../assets/sidebar.png" />
 </template>
 
 <script lang="ts">
@@ -19,4 +19,6 @@ img
   position: absolute
   left: 0
   top: 0
+  margin: 0
+  padding: 0
 </style>

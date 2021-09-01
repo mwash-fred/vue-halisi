@@ -126,6 +126,11 @@ img
       color: $midGray
     .info
       margin-top: 2vh
+      color: red !important
+
+      & a:hover
+        color: yellow
+        
       p
         position: absolute
         font-size: .8rem

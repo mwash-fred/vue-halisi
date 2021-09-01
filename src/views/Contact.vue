@@ -95,14 +95,14 @@
         <label for="newsletterEmail" class="py-1 text-left d-flex"
           ><span>Subscribe to our newsletter !</span></label
         >
-        <input
+          <input
           type="email"
           class="form-control pl-2"
-          id="newsletterEmail"
+          id="bookingEmail"
           aria-describedby="emailHelp"
           placeholder="Your Email Address"
           required
-        />
+          />
         <button class="btn d-block" type="submit">Subscribe</button>
       </div>
       <p class="slogan">"Halisi studios slogan could go here.."</p>
@@ -134,7 +134,7 @@ import $ from "jquery";
     };
   },
   mounted () {
-    var links = [$("a"),$(".hamburgerIcon"),$("input")];
+    var links = [$("a"),$(".hamburgerIcon"),$(".form-control")];
     links.forEach((el) => {
       el.mouseover(this.mouseHovered);
       el.mouseleave(this.mouseExit);
