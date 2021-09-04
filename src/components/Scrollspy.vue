@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="scrollspy"></div>
-    <div class="scrollspy"></div>
+    <div class="scrollspy ss2"></div>
   </div>
 </template>
 
@@ -30,7 +30,7 @@ div
     
     &:nth-child(2)
         height: .25rem
-        width: 1rem
+        width: 1rem //9.5rems
         background-color: $darkGray
         margin-top: -.3rem
         

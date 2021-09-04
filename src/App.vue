@@ -44,8 +44,19 @@ import { gsap} from "@/assets/my-gsap";
       if (window.scrollX > 20) {
         gsap.to($('#sidebar'),{xPercent: -96, duration: 2, ease: 'easeInOut'})
         gsap.to($('.titleTag'),{xPercent: -6, duration: 1.5, ease: 'easeInOut', autoAlpha: 0})
-        gsap.to($('.info'),{autoAlpha: 0, duration: .5, ease: 'easeInOut'})
-        gsap.to($('.'))
+        gsap.to($('.info'),{autoAlpha: 0, duration: .4, ease: 'easeInOut'})
+        // sort out this code for the scroll-spy later.
+        gsap.to($('.ss2'),{ width: '95%', scrollTrigger: {
+          trigger: '.dash',
+          start: () => $('.dash').innerWidth,
+          markers: true,
+          scrub: true,
+        }})
+        // gsap.to($('.ss2'), {width: '100%',
+        //   scrollTrigger: {
+        //     scrub: true,
+        //   }
+        // })
       }
     },
   },
