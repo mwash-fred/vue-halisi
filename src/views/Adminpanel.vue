@@ -1,4 +1,5 @@
 <template>
+  <Mouse />
   <div class="background-cover">
     <div class="d-flex flex-column">
       <div class="d-flex flex-row top">
@@ -74,6 +75,9 @@ export default class Admin extends Vue {}
 <style lang="sass" scoped>
 @import '@/assets/_config.sass'
 
+*
+  cursor: none
+  
 a
   color: white !important
 
@@ -85,6 +89,7 @@ a
   left: 0
   top: 0
   overflow: hidden
+  z-index: 3
 
   .col-md-3, .col-md-6
     border: 1px solid black

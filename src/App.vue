@@ -49,7 +49,6 @@ import { gsap} from "@/assets/my-gsap";
         gsap.to($('.ss2'),{ width: '95%', scrollTrigger: {
           trigger: '.dash',
           start: () => $('.dash').innerWidth,
-          markers: true,
           scrub: true,
         }})
         // gsap.to($('.ss2'), {width: '100%',

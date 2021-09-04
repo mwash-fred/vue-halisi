@@ -1,4 +1,5 @@
 <template>
+  <Mouse />
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-2 sidetab">
@@ -12,10 +13,11 @@ Dashboard</li>
       </div>
 
       <div class="col-sm-10 content">
-        <div class="control">
-          <h1>Admin</h1>
-          <h1><router-link to="/Adminpanel">Signout<i class="fas fa-sign-out-alt"></i></router-link></h1>
+
+        <div class="control2" ref="exitTab">
+          <router-link to="/Adminpanel"><i class="fas fa-sign-out-alt"></i><span class="signout-tag"> Signout</span></router-link>
         </div>
+
         <div class="tab pie-chart">pie-chart</div>
         <div class="tab graph">graph</div>
         <div class="tab pie-chart-long">pie-chart-long</div>
@@ -34,9 +36,25 @@ Dashboard</li>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { gsap } from "@/assets/my-gsap";
+import $ from "jquery";
 
 @Options({
   name: "Dashboard",
+  mounted () {
+    $('.control').mouseover(this.mouseWentOverHere);
+    $('.control').mouseover(this.mouseLeftHere);
+
+    // gsap.to($('.control'),{})
+  },
+  methods: {
+    mouseWentOverHere() {
+      gsap.to($('.control'),{ width: "150%", duration: 2, delay: .2})
+    },
+    mouseLeftHere() {
+      gsap.to($('.control'),{width: "0%", duration: 2, delay: .5})
+    }
+  },
 })
 export default class Dashboard extends Vue {}
 </script>
@@ -48,6 +66,7 @@ export default class Dashboard extends Vue {}
 
 *
     color: white
+    z-index: 3
 
 .container-fluid
     background-color: $green
@@ -95,6 +114,7 @@ export default class Dashboard extends Vue {}
 
 .content
     background-color: $lightGreen
+    text-align: center
     display: grid
     padding: 4em
     padding-top: 5em !important
@@ -103,37 +123,34 @@ export default class Dashboard extends Vue {}
     grid-gap: 1rem
 
     .control
+        align-self: center
         position: absolute
         right: 0
         top: 0
+        min-height: 2.4em
+        min-width: 2.4em
+        align-items: center
+        border-radius: 50%
         background-color: $darkGreen
-        width: 12.5rem
-        display: flex
-        border-bottom-left-radius: 12px
+        margin: .2em
+
+        i
+            margin-top: .6em
+
+            &:hover, &:active
+                color: $ashGray
+
+    .control2
+        @extend .control
+        border-radius: 0
+        margin: 0
+        border-bottom-left-radius: .8em
+        width: 6em
+        height: 2em
+
+
+
         
-        h1
-            font-size: 1.2rem
-            padding-inline: 1rem
-            line-height: 2.8rem
-            margin-bottom: 0
-
-            &:nth-child(1)
-              border-right: .5px solid $midGray
-
-            &:nth-child(2)
-                font-size: 1rem
-                line-height: 2.8rem
-                
-                i
-                  margin-left: .5rem
-
-                  &:hover, &:active
-                    color: $ashGray
-                    
-                  
-
-
-
 
     .tab
         background-color: darken($darkGreen,2%)
