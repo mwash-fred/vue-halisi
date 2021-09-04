@@ -10,8 +10,6 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Sidebar from "@/components/Sidebar.vue";
-import $ from "jquery";
-import { gsap } from "@/assets/my-gsap";
 
 @Options({
   components: {
@@ -20,6 +18,19 @@ import { gsap } from "@/assets/my-gsap";
   data() {
     return {
     };
+  },
+  mounted () {
+    var element = document.scrollingElement || document.documentElement;
+    element.addEventListener('wheel', this.transformScroll);
+  },
+  methods: {
+    transformScroll(event) {
+      if (!event.deltaY) {
+        return;
+      }
+      event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
+      event.preventDefault();
+    },
   },
   // mounted () {
   //   const scrollContainer = $('#app');

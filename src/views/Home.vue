@@ -81,10 +81,6 @@ import { gsap } from "@/assets/my-gsap";
     mouseExit() {
       this.myVar = 1;
     },
-    // scrollX(e) {
-    //   this.$refs['scroll_container'].scrollLeft += e.deltaY;
-    //   console.log('scrolling to the left')
-    // },
   },
   created() {
     window.addEventListener("load", this.onWindowLoad),

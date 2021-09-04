@@ -23,7 +23,7 @@ export default class Tabs extends Vue {
 </script>
 
 <style lang="sass" scoped>
-@import '@/assets/_config.sass';
+@import '@/assets/_config.sass'
 
 ul
     position: relative

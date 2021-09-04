@@ -43,7 +43,8 @@ import $ from "jquery";
           transformOrigin: "80% 40%",
           duration: 0.4,
         });
-        gsap.to($(".main-menu"), { xPercent: -60, autoAlpha: 1 });
+        gsap.to($(".main-menu"), { xPercent: 0, autoAlpha: 1 });
+        $(window).scrollLeft = 0
         this.rotation = 1;
       } else {
         gsap.to($(".hamburgerIcon"), {
@@ -51,7 +52,7 @@ import $ from "jquery";
           transformOrigin: "80% center",
           duration: 0.4,
         });
-        gsap.to($(".main-menu"), { xPercent: 0, autoAlpha: 0 });
+        gsap.to($(".main-menu"), { xPercent: 60, autoAlpha: 0 });
         this.rotation = 0;
       }
     },
