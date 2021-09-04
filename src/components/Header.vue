@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import gsap from "gsap";
+import { gsap } from "@/assets/my-gsap";
 import $ from "jquery";
 
 @Options({
@@ -43,8 +43,11 @@ import $ from "jquery";
           transformOrigin: "80% 40%",
           duration: 0.4,
         });
-        gsap.to($(".main-menu"), { xPercent: 0, autoAlpha: 1 });
-        $(window).scrollLeft = 0
+        gsap.timeline()
+          .to($(".main-menu"), { autoAlpha: 1 })
+          .to($("#sidebar"),{ xPercent: 0, duration: .5, ease: 'easeInOut'},"<")
+          .fromTo($("#closeTag"),{yPercent: 60, autoAlpha: 0},{yPercent: 0, autoAlpha: 1, duration: .5, ease: 'Power1.easeOut'});
+
         this.rotation = 1;
       } else {
         gsap.to($(".hamburgerIcon"), {
@@ -52,7 +55,8 @@ import $ from "jquery";
           transformOrigin: "80% center",
           duration: 0.4,
         });
-        gsap.to($(".main-menu"), { xPercent: 60, autoAlpha: 0 });
+        gsap.to($(".main-menu"), { autoAlpha: 0 });
+        gsap.to($("#closeTag"), {yPercent: 60, autoAlpha: 0});
         this.rotation = 0;
       }
     },

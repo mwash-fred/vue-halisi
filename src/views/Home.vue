@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Sidebar />
     <Mouse :style="{ '--my-var': myVar }" />
     <Header title="Home" />
 
@@ -35,8 +34,6 @@ import Tabs from "@/components/Tabs.vue";
 
 // assets
 import $ from "jquery";
-// import HorizontalScroll from "vue-horizontal-scroll";
-
 import { gsap } from "@/assets/my-gsap";
 
 @Options({
@@ -141,10 +138,6 @@ import { gsap } from "@/assets/my-gsap";
           image: "",
         },
       ]);
-    document.addEventListener('wheel', (e) => {
-      $('.scroll_container').scrollLeft += e.deltaY;
-      console.log('scrolling to the left');
-    })
   },
 })
 export default class Home extends Vue {}
@@ -159,12 +152,14 @@ body,
 .titleTag div
   font-family: $secondaryFont
   position: absolute
+  // z-index: 0
   transform: rotate(-90deg)
   white-space: nowrap
   font-size: 5rem
   width: 70vh
   margin-top: 3.4em
   animation: text-loop 20s linear infinite
+  
 
 @keyframes text-loop
   0%
@@ -173,7 +168,7 @@ body,
     transform: rotate(-90deg) translateX(-100%)
 
 .info
-  position: absolute
+  position: fixed
   bottom: 0
   left: 50%
   transform: translate(-50%,0)

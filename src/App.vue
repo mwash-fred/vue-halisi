@@ -10,6 +10,9 @@
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
 import Sidebar from "@/components/Sidebar.vue";
+import $ from "jquery";
+
+import { gsap} from "@/assets/my-gsap";
 
 @Options({
   components: {
@@ -17,11 +20,17 @@ import Sidebar from "@/components/Sidebar.vue";
   },
   data() {
     return {
+      xVar: 0
     };
   },
   mounted () {
     var element = document.scrollingElement || document.documentElement;
     element.addEventListener('wheel', this.transformScroll);
+    
+    window.addEventListener("scroll", this.startScroll)
+
+    gsap.to($("body"), {css: {overflow: "hidden"}})
+
   },
   methods: {
     transformScroll(event) {
@@ -29,20 +38,18 @@ import Sidebar from "@/components/Sidebar.vue";
         return;
       }
       event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
-      event.preventDefault();
+      // event.preventDefault();
+    },
+    startScroll() {
+      if (window.scrollX > 20) {
+        gsap.to($('#sidebar'),{xPercent: -96, duration: 2, ease: 'easeInOut'})
+        gsap.to($('.titleTag'),{xPercent: -6, duration: 1.5, ease: 'easeInOut', autoAlpha: 0})
+        gsap.to($('.info'),{autoAlpha: 0, duration: .5, ease: 'easeInOut'})
+        gsap.to($('.'))
+      }
     },
   },
-  // mounted () {
-  //   const scrollContainer = $('#app');
-  //   scrollContainer.addEventListener("wheel", (evt) => {
-  //     evt.preventDefault();
-  //     scrollContainer.scrollLeft += evt.deltaY;
-  //   });
-  // },
-  // methods: {
-  //   },
 
-    
 })
 export default class Home extends Vue {}
 </script>

@@ -15,7 +15,7 @@ export default {
 @import '@/assets/_config.sass'
 
 div
-    position: absolute
+    position: fixed
     margin: auto
     bottom: 4%
     left: 50%

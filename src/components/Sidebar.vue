@@ -7,6 +7,12 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({
   name: "Sidebar",
+  mounted () {
+    // window.addEventListener("scroll", this.startScroll)
+  },
+  computed: {
+    //
+  },
 })
 export default class Sidebar extends Vue {}
 </script>
@@ -16,9 +22,10 @@ export default class Sidebar extends Vue {}
 
 img
   height: 100%
-  position: absolute
+  position: fixed
   left: 0
   top: 0
   margin: 0
   padding: 0
+  z-index: 1
 </style>

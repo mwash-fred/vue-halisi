@@ -1,6 +1,8 @@
 <template>
   <div class="container-fluid main-menu">
     <div class="slide">
+      
+      <h6 id="closeTag">Close</h6>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           <router-link to="/" class="d-flex">
@@ -82,7 +84,7 @@ import $ from "jquery";
     Dash,
   },
   mounted () {
-    gsap.set($('.main-menu'),{xPercent: 60, autoAlpha: 0, visibility: 'hidden'});
+    gsap.set($('.main-menu'),{ autoAlpha: 0 });
   },
 })
 export default class Menu extends Vue {}
@@ -93,15 +95,17 @@ export default class Menu extends Vue {}
 
 *
   color: white
-  // visibility: hidden 
 
-.main-menu
-  opacity: 0
-  // transform: translateX(60%)
+h6
+  position: absolute
+  right: 0
+  margin: 3.5vw
+  margin-top: 4vw
+  padding: 0
 
 .container-fluid
   background-color: rgb(0,0,0)
-  position: absolute
+  position: fixed
   height: 100vh
   width: 85.69vw
   top: 0

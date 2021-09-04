@@ -3,82 +3,49 @@
     <Mouse :style="{ '--my-var': myVar }" />
     <Header title="The Team"/>
 
-    <div class="container d-flex" ref="container">
+    <div class="container-fluid text-middle d-flex"></div>
 
-      <div class="row container-fluid" ref="row">
-        <div class="col-sm-3"></div>
 
-        <div class="col-sm-9 d-flex">
-          <img alt="newt" src="../assets/newt.jpg" />
+      <div class="row container-fluid">
+          <div class="col-sm-3"></div>
 
-          <div class="d-block content">
-            <h1 class="title text-end">Co-founder</h1>
+          <div class="col-sm-9 d-flex">
+            <img alt="newt" src="../assets/newt.jpg" />
 
-            <div class="d-flex row">
-              <h2 class="text-start">Newton Mutuma</h2>
+            <div class="d-block content">
+              <h1 class="title text-end">Co-founder</h1>
 
-              <p class="quote pt-4 pb-2">
-                "Photography is a way of feeling, of touching, of loving."
-              </p>
+              <div class="d-flex row">
+                <h2 class="text-start">Newton Mutuma</h2>
 
-              <div class="row about-info text-start">
-                <div class="col-sm-8 about">
-                  <p>
-                    As the co-founder of Halisi studios, he is a renown
-                    photographer bleh bleh bleh and more bleehs for the next four
-                    paragraphs until this section looks like a block of text so
-                    that it provides the user enough information about this dude.
-                    You are an open book in your career so write more information
-                    about yourself here...
-                  </p>
-                </div>
-                <div class="col-sm-4 info">
-                  <h2><a href="/">Instagram</a> <br /><a href="/contact">Dribble</a><br /><a href="/home">Only Fans</a></h2>
-                  <p>Find me on other platforms.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                <p class="quote pt-4 pb-2">
+                  "Photography is a way of feeling, of touching, of loving."
+                </p>
 
-      <div class="row container-fluid" ref="row">
-        <div class="col-sm-3"></div>
-
-        <div class="col-sm-9 d-flex">
-          <img alt="newt" src="../assets/newt.jpg" />
-
-          <div class="d-block content">
-            <h1 class="title text-end">Co-founder</h1>
-
-            <div class="d-flex row">
-              <h2 class="text-start">Newton Mutuma</h2>
-
-              <p class="quote pt-4 pb-2">
-                "Photography is a way of feeling, of touching, of loving."
-              </p>
-
-              <div class="row about-info text-start">
-                <div class="col-sm-8 about">
-                  <p>
-                    As the co-founder of Halisi studios, he is a renown
-                    photographer bleh bleh bleh and more bleehs for the next four
-                    paragraphs until this section looks like a block of text so
-                    that it provides the user enough information about this dude.
-                    You are an open book in your career so write more information
-                    about yourself here...
-                  </p>
-                </div>
-                <div class="col-sm-4 info">
-                  <h2><a href="/">Instagram</a> <br /><a href="/contact">Dribble</a><br /><a href="/home">Only Fans</a></h2>
-                  <p>Find me on other platforms.</p>
+                <div class="row about-info text-start">
+                  <div class="col-sm-8 about">
+                    <p>
+                      As the co-founder of Halisi studios, he is a renown
+                      photographer bleh bleh bleh and more bleehs for the next four
+                      paragraphs until this section looks like a block of text so
+                      that it provides the user enough information about this dude.
+                      You are an open book in your career so write more information
+                      about yourself here...
+                    </p>
+                  </div>
+                  <div class="col-sm-4 info">
+                    <h2><a href="/">Instagram</a> <br /><a href="/contact">Dribble</a><br /><a href="/home">Only Fans</a></h2>
+                    <p>Find me on other platforms.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
-    </div>
+
+
+
+      
 
     <Middledash />
     <Scrollspy />
@@ -90,10 +57,6 @@
 import { Options, Vue } from "vue-class-component";
 import Middledash from "@/components/Middledash.vue";
 import $ from 'jquery';
-// import gsap from "gsap";
-// import ScrollTrigger from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
 
 @Options({
   components: {
@@ -109,21 +72,6 @@ import $ from 'jquery';
     links.forEach((el) => {
       el.mouseover(this.mouseHovered);
       el.mouseleave(this.mouseExit);
-    });
-
-    // let section = this.gsap.utils.toArray('.row')
-    this.gsap.to(this.$refs.row, {
-      xPercent: -200,
-      ease: "none",
-      scrollTrigger: {
-        trigger: this.$refs.container,
-        markers: true,
-        start: "top top",
-        pin: true,
-        scrub: 1,
-        // base vertical scrolling on how wide the container is so it feels more natural.
-        end: () => "+=" + this.$refs.container.offsetHeight
-      }
     });
   },
   methods: {
