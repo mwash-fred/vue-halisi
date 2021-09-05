@@ -7,17 +7,14 @@
           <div class="userIcon rounded-circle"><i class="fa fa-user" aria-hidden="true"></i></div>
           <p>Newton Mutuma</p>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><i class="fa fa-th-large" aria-hidden="true"></i>
-Dashboard</li>
+            <li class="list-group-item"><i class="fa fa-th-large" aria-hidden="true"></i> Dashboard</li>
           </ul>
+          <router-link id="exit-tab" to="/Adminpanel">
+              <i class="fas fa-sign-out-alt"><span> Signout</span></i>
+          </router-link>
       </div>
 
       <div class="col-sm-10 content">
-
-        <div class="control2" ref="exitTab">
-          <router-link to="/Adminpanel"><i class="fas fa-sign-out-alt"></i><span class="signout-tag"> Signout</span></router-link>
-        </div>
-
         <div class="tab pie-chart">pie-chart</div>
         <div class="tab graph">graph</div>
         <div class="tab pie-chart-long">pie-chart-long</div>
@@ -36,24 +33,11 @@ Dashboard</li>
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import { gsap } from "@/assets/my-gsap";
-import $ from "jquery";
 
 @Options({
   name: "Dashboard",
-  mounted () {
-    $('.control').mouseover(this.mouseWentOverHere);
-    $('.control').mouseover(this.mouseLeftHere);
 
-    // gsap.to($('.control'),{})
-  },
   methods: {
-    mouseWentOverHere() {
-      gsap.to($('.control'),{ width: "150%", duration: 2, delay: .2})
-    },
-    mouseLeftHere() {
-      gsap.to($('.control'),{width: "0%", duration: 2, delay: .5})
-    }
   },
 })
 export default class Dashboard extends Vue {}
@@ -65,7 +49,6 @@ export default class Dashboard extends Vue {}
 @import '@/assets/_config.sass'
 
 *
-    color: white
     z-index: 3
 
 .container-fluid
@@ -85,32 +68,53 @@ export default class Dashboard extends Vue {}
       font-size: 2em
       padding-top: 2rem
 
+    p
+      margin-top: 1em
+      font-size: 1.4em
+
     .userIcon
         background-color: $midGray
         text-align: center
         width: 10rem
         height: 10rem
         margin-inline: 1.24rem
-        
+
         i
           font-size: 5rem
           padding: 2rem
-          
-    p
-      margin-top: 1em
-      font-size: 1.4em
 
     ul 
       margin-top: 4rem
+      font-family: $primaryFont
+
       li
         background-color: transparent
         margin-inline: -.8rem
+        color: white
         border-left: 4px solid white
 
         i
           color: lighten($green,20%)
           margin-left: -2em
           margin-right: 1em
+
+    #exit-tab
+        position: absolute
+        bottom: 0
+        left: 0
+        padding-inline: 3em
+        margin-bottom: 6vh
+        padding-right: 6em
+        padding-block: .8em
+        color: white
+
+        i
+            padding-right: 1em
+
+            span
+                font-family: $primaryFont
+                margin-left: 1em
+                font-weight: normal
 
 .content
     background-color: $lightGreen
@@ -139,18 +143,6 @@ export default class Dashboard extends Vue {}
 
             &:hover, &:active
                 color: $ashGray
-
-    .control2
-        @extend .control
-        border-radius: 0
-        margin: 0
-        border-bottom-left-radius: .8em
-        width: 6em
-        height: 2em
-
-
-
-        
 
     .tab
         background-color: darken($darkGreen,2%)
