@@ -23,7 +23,7 @@ div
   left: 34%
   transform: translate(0, -50%)
 
-  width: 66vw
+  width: 160vw
   height: .01rem
   background-image: linear-gradient(to right, $ashGray 0%, $ashGray 50%, transparent 50%)
   background-size: 10px .08px

@@ -14,7 +14,7 @@
       <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
       <Tabs :tabs="categories" />
     </section>
-    <div class="info">
+    <div class="scroll-directive">
       <p>Scroll Down</p>
       <i class="fa fa-angle-down" aria-hidden="true"></i>
     </div>
@@ -167,7 +167,7 @@ body,
   100%
     transform: rotate(-90deg) translateX(-100%)
 
-.info
+.scroll-directive
   position: fixed
   bottom: 0
   left: 50%

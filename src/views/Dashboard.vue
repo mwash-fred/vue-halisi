@@ -16,7 +16,9 @@
 
       <div class="col-sm-10 content">
         <div class="tab pie-chart">pie-chart</div>
-        <div class="tab graph">graph</div>
+        <div class="tab graph">
+          <!-- <Chart /> -->
+        </div>
         <div class="tab pie-chart-long">pie-chart-long</div>
         <div class="second">
           <div class="gigs tab">gigs</div>
@@ -36,7 +38,7 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({
   name: "Dashboard",
-
+  
   methods: {
   },
 })
