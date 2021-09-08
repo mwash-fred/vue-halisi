@@ -7,7 +7,7 @@
     <h1 class="title">Get in <span>touch</span></h1>
   </div>
 
-  <Middledash />
+  <Middledash :style="{ 'width': width + 'vw' }"/>
   <div class="container headings">
     <h2>
       Drop an email for <br />
@@ -119,12 +119,14 @@ import Middledash from "@/components/Middledash.vue";
 import $ from "jquery";
 
 @Options({
+
   components: {
     Middledash,
   },
   data() {
     return {
       myVar: 1,
+      width: 66,
       userInfo: {
         name: "Timothy Davis",
         email: "thehilltimmy@gmail.com",

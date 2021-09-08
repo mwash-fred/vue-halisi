@@ -54,7 +54,7 @@ import { gsap } from "@/assets/my-gsap";
     // gsap.to(foot, { xPercent: -50 });
 
     //Cursor grow on hover
-    var links = [$("a"),$(".hamburgerIcon")];
+    var links = [$("a"),$(".hamburgerIcon"),$("#audio-icon")];
     links.forEach((el) => {
       el.mouseover(this.mouseHovered);
       el.mouseleave(this.mouseExit);

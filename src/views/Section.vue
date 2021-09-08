@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <Mouse />
+  <Mouse :style="{ '--my-var': myVar }"/>
   <div class="background-cover">
     <div class="d-flex flex-column">
 
@@ -43,10 +43,29 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import $ from 'jquery'
 
 @Options({
   name: "Adminpanel",
-  components: {
+  data() {
+    return {
+      myVar: 1
+    }
+  },
+  mounted () {
+    var links = [$("a"),$(".hamburgerIcon"),$("#audio-icon")];
+    links.forEach((el) => {
+      el.mouseover(this.mouseHovered);
+      el.mouseleave(this.mouseExit);
+    });
+  },
+   methods: {
+    mouseHovered() {
+      this.myVar = 1.5;
+    },
+    mouseExit() {
+      this.myVar = 1;
+    },
   },
 })
 export default class Admin extends Vue {}
@@ -64,7 +83,8 @@ a
   background-color: $mustard
   left: 0
   top: 0
-  overflow: hidden
+  z-index: 1
+  overflow-y: hidden
 
   .col-md-3, .col-md-6
     border: 1px solid black

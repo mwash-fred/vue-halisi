@@ -30,7 +30,6 @@ import { gsap} from "@/assets/my-gsap";
     window.addEventListener("scroll", this.startScroll)
 
     gsap.to($("body"), {css: {overflow: "hidden"}})
-
   },
   methods: {
     transformScroll(event) {
@@ -51,11 +50,6 @@ import { gsap} from "@/assets/my-gsap";
           start: () => $('.dash').innerWidth,
           scrub: true,
         }})
-        // gsap.to($('.ss2'), {width: '100%',
-        //   scrollTrigger: {
-        //     scrub: true,
-        //   }
-        // })
       }
     },
   },

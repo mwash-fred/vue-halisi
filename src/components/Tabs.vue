@@ -1,9 +1,9 @@
 <template>
   <section class="tabs">
     <ul class="list-group list-group-flush tabs">
-      <li class="list-group-item"  v-for="tab in tabs" :key="tab.id">
+      <router-link to="/section" class="list-group-item"  v-for="tab in tabs" :key="tab.id">
         <h1 class="title-tag display-1">{{ tab.title }}</h1>
-      </li>
+      </router-link>
     </ul>
   </section>
   
@@ -14,9 +14,19 @@ import { Options, Vue } from 'vue-class-component';
 
 @Options({
   name: 'Tabs',
+  data() {
+    return {
+      category: '/category'
+    }
+  },
   props: {
     tabs: Array
-  }
+  },
+  methods: {
+    reroute() {
+      return {}
+    }
+  },
 })
 export default class Tabs extends Vue {
 }

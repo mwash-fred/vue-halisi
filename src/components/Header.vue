@@ -4,6 +4,13 @@
       <div class="d-flex layer1">
         <h1>{{ title }}</h1>
 
+        <img
+          id="audio-icon"
+          alt="audio-icon"
+          src="../assets/mute.svg"
+          @click="toggleAudio"
+        />
+
         <div class="hamburgerIcon" @click="toggleMenu">
           <div class="top"></div>
           <div class="bottom"></div>
@@ -30,6 +37,7 @@ import $ from "jquery";
   data() {
     return {
       rotation: 0,
+      audio: true,
     };
   },
   props: {
@@ -43,10 +51,19 @@ import $ from "jquery";
           transformOrigin: "80% 40%",
           duration: 0.4,
         });
-        gsap.timeline()
+        gsap
+          .timeline()
           .to($(".main-menu"), { autoAlpha: 1 })
-          .to($("#sidebar"),{ xPercent: 0, duration: .5, ease: 'easeInOut'},"<")
-          .fromTo($("#closeTag"),{yPercent: 60, autoAlpha: 0},{yPercent: 0, autoAlpha: 1, duration: .5, ease: 'Power1.easeOut'});
+          .to(
+            $("#sidebar"),
+            { xPercent: 0, duration: 0.5, ease: "easeInOut" },
+            "<"
+          )
+          .fromTo(
+            $("#closeTag"),
+            { yPercent: 60, autoAlpha: 0 },
+            { yPercent: 0, autoAlpha: 1, duration: 0.5, ease: "Power1.easeOut" }
+          );
 
         this.rotation = 1;
       } else {
@@ -56,12 +73,20 @@ import $ from "jquery";
           duration: 0.4,
         });
         gsap.to($(".main-menu"), { autoAlpha: 0 });
-        gsap.to($("#closeTag"), {yPercent: 60, autoAlpha: 0});
+        gsap.to($("#closeTag"), { yPercent: 60, autoAlpha: 0 });
         this.rotation = 0;
       }
     },
+    toggleAudio() {
+      if (this.audio === false) {
+        this.audio = true;
+        gsap.set($('#audio-icon'), { attr: { src: "http://localhost:8080/img/volume.8c401b30.svg" } }); //Change link to image sources on deployment
+      } else {
+        this.audio = false;
+        gsap.set($('#audio-icon'), { attr: { src: "http://localhost:8080/img/mute.b3987e85.svg" } });
+      }
+    },
   },
-
 })
 export default class Sidebar extends Vue {
   title!: string;
@@ -97,6 +122,12 @@ a //Home Control
 .layer1
   margin-inline: 3em
   position: fixed-top
+
+  img
+    @extend .hamburgerIcon
+    width: 1.4em
+    margin-right: 10vw !important
+    margin-top: 1.1vw !important
 
   .hamburgerIcon
     position: fixed
