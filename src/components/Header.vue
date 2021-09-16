@@ -4,12 +4,14 @@
       <div class="d-flex layer1">
         <h1>{{ title }}</h1>
 
-        <img
+        <!-- <img
           id="audio-icon"
           alt="audio-icon"
-          src="../assets/mute.svg"
+          src="../../public/img/icons/mute.svg"
           @click="toggleAudio"
-        />
+          @mouseover="play"
+        /> -->
+        <SoundButton />
 
         <div class="hamburgerIcon" @click="toggleMenu">
           <div class="top"></div>
@@ -30,16 +32,22 @@
 import { Options, Vue } from "vue-class-component";
 import { gsap } from "@/assets/my-gsap";
 import $ from "jquery";
+import SoundButton from "@/components/Soundbutton.vue"
+
+// import useSound from "vue-use-sound";
 
 @Options({
   name: "Header",
-  components: {},
+  components: {
+    SoundButton
+  },
   data() {
     return {
       rotation: 0,
       audio: true,
     };
   },
+
   props: {
     title: String,
   },
@@ -80,10 +88,12 @@ import $ from "jquery";
     toggleAudio() {
       if (this.audio === false) {
         this.audio = true;
-        gsap.set($('#audio-icon'), { attr: { src: "http://localhost:8080/img/volume.8c401b30.svg" } }); //Change link to image sources on deployment
+        console.log("on")
+        gsap.set($('#audio-icon'), { attr: { src: "../../public/img/icons/volume.svg" } }); //Change link to image sources on deployment
       } else {
         this.audio = false;
-        gsap.set($('#audio-icon'), { attr: { src: "http://localhost:8080/img/mute.b3987e85.svg" } });
+        console.log("off")
+        gsap.set($('#audio-icon'), { attr: { src: "../../public/img/icons/mute.svg" } });
       }
     },
   },

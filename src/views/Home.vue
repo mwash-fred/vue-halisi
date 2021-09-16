@@ -146,7 +146,7 @@ export default class Home extends Vue {}
 <style lang="sass" scoped>
 @import '@/assets/_config.sass'
 
-body,
+body
   overflow-y: hidden !important
   
 .titleTag div

@@ -12,7 +12,7 @@ import { Options, Vue } from "vue-class-component";
 import Sidebar from "@/components/Sidebar.vue";
 import $ from "jquery";
 
-import { gsap} from "@/assets/my-gsap";
+import { gsap } from "@/assets/my-gsap";
 
 @Options({
   components: {
@@ -20,16 +20,15 @@ import { gsap} from "@/assets/my-gsap";
   },
   data() {
     return {
-      xVar: 0
+      xVar: 0,
     };
   },
-  mounted () {
+  mounted() {
     var element = document.scrollingElement || document.documentElement;
-    element.addEventListener('wheel', this.transformScroll);
-    
-    window.addEventListener("scroll", this.startScroll)
+    element.addEventListener("wheel", this.transformScroll);
+    window.addEventListener("scroll", this.startScroll);
 
-    gsap.to($("body"), {css: {overflow: "hidden"}})
+    // gsap.to($("body"), {css: {overflow: "hidden"}})
   },
   methods: {
     transformScroll(event) {
@@ -40,20 +39,37 @@ import { gsap} from "@/assets/my-gsap";
       // event.preventDefault();
     },
     startScroll() {
-      if (window.scrollX > 20) {
-        gsap.to($('#sidebar'),{xPercent: -96, duration: 2, ease: 'easeInOut'})
-        gsap.to($('.titleTag'),{xPercent: -6, duration: 1.5, ease: 'easeInOut', autoAlpha: 0})
-        gsap.to($('.scroll-directive'),{autoAlpha: 0, duration: .4, ease: 'easeInOut'})
+      if (window.scrollX > 25) {
+        gsap.to($("#sidebar"), {
+          xPercent: -96,
+          duration: 2,
+          ease: "easeInOut",
+        });
+        gsap.to($(".titleTag"), {
+          xPercent: -6,
+          duration: 1.5,
+          ease: "easeInOut",
+          autoAlpha: 0,
+        });
+        gsap.to($(".scroll-directive"), {
+          autoAlpha: 0,
+          duration: 0.4,
+          ease: "easeInOut",
+        });
+
         // sort out this code for the scroll-spy later.
-        gsap.to($('.ss2'),{ width: '95%', scrollTrigger: {
-          trigger: '.dash',
-          start: () => $('.dash').innerWidth,
-          scrub: true,
-        }})
+        gsap.to($(".ss2"), { width: "86%", duration: 8,
+          scrollTrigger: {
+            trigger: ".tabs",
+            // start: "top top",
+            toggleActions: "play reverse reverse reset",
+            scrub: 4,
+            // end: () => window.innerWidth,
+          },
+        })
       }
     },
   },
-
 })
 export default class Home extends Vue {}
 </script>

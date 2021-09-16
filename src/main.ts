@@ -17,7 +17,8 @@ import Mouse from "@/components/Mouse.vue";
 import Menu from "@/components/Menu.vue"
 import Scrollspy from "@/components/Scrollspy.vue";
 import Footer from "@/components/Footer.vue"
-import Chart from "@/components/Chart.vue"
+import Piechart from "@/components/Piechart.vue";
+import Barchart from "@/components/Barchart.vue";
 
 const app = createApp(App)
 
@@ -35,8 +36,8 @@ app.component('Mouse', Mouse)
 app.component('Header', Header)
 app.component('Scrollspy', Scrollspy)
 app.component('Footer', Footer)
-app.component('Chart', Chart)
-
+app.component('Piechart', Piechart)
+app.component('Barchart', Barchart)
 
 app
     .use(store)
