@@ -13,6 +13,7 @@ import {
   GridComponent,
   DatasetComponent,
   TransformComponent,
+  VisualMapComponent,
 } from "echarts/components";
 import VChart, { THEME_KEY } from "vue-echarts";
 import { ref, defineComponent } from "vue";
@@ -27,6 +28,7 @@ use([
   TransformComponent,
   LabelLayout,
   UniversalTransition,
+  VisualMapComponent,
 ]);
 
 export default defineComponent({
@@ -35,7 +37,7 @@ export default defineComponent({
     VChart,
   },
   provide: {
-    [THEME_KEY]: "vintage",
+    [THEME_KEY]: "light",
   },
   setup() {
     const option = ref({
@@ -72,19 +74,26 @@ export default defineComponent({
           [
             "Activity",
             500,
-            300,
-            300,
+            450,
             400,
             400,
             400,
-            250,
             400,
-            200,
+            450,
+            500,
+            500,
             400,
-            150,
-            200,
+            450,
+            400,
           ],
         ],
+      },
+      grid: {
+        left: "10%",
+        right: "5%",
+        bottom: "16%",
+        top: "25%",
+        containLabel: false,
       },
       xAxis: {
         type: "category",
@@ -92,24 +101,46 @@ export default defineComponent({
           show: false,
         },
 
+        axisLabel: {
+          fontFamily: "cormorant garamond",
+          color: "#dedede",
+        },
       },
-      yAxis: { 
+      yAxis: {
         axisTick: {
-          length: 5
+          length: 5,
+        },
+        axisLabel: {
+          fontFamily: "cormorant garamond",
+          color: "#b8b8b8",
+          fontSize: 14,
+        },
+        splitLine: {
+          lineStyle: {
+            color: "gray",
+            opacity: 0.1,
+          },
         },
         axisLine: {
           onZero: false,
           lineStyle: {
             color: "#b8b8b8",
-            width: 0
-          }
-        }
+          },
+        },
+      },
+      visualMap: {
+        show: false,
+        min: 80,
+        max: 700,
+        inRange: {
+          colorLightness: [0, 1],
+        },
       },
       series: [
         {
           type: "bar",
           seriesLayoutBy: "row",
-          barWidth: 24,
+          barWidth: 16,
           selectedMode: "single",
           colorBy: "data",
           height: 255,
@@ -119,10 +150,11 @@ export default defineComponent({
             y: "80%",
           },
           itemStyle: {
-            borderRadius: [3],
+            borderRadius: [4],
+            color: "#c23531",
           },
           emphasis: {
-            focus: 'data',
+            focus: "data",
             itemStyle: {
               shadowBlur: 10,
               shadowOffsetX: 0,

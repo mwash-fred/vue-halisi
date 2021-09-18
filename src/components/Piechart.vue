@@ -43,7 +43,6 @@ export default defineComponent({
             backgroundColor: "transparent",
             fontWeight: "normal"
         }
-        
       },
       tooltip: {
         trigger: "item",
@@ -62,7 +61,6 @@ export default defineComponent({
             fontFamily: "cormorant garamond",
             fontSize: 11,
         },
-        data: ["Instagram", "Facebook", "Ad Networks", "Youtube", "Search Engines","Direct"]
       },
       series: [
         {

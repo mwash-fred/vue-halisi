@@ -18,7 +18,11 @@ import Menu from "@/components/Menu.vue"
 import Scrollspy from "@/components/Scrollspy.vue";
 import Footer from "@/components/Footer.vue"
 import Piechart from "@/components/Piechart.vue";
+import Piechart2 from "@/components/Piechart2.vue";
 import Barchart from "@/components/Barchart.vue";
+import Voidpie from "@/components/Voidpie.vue";
+import Linechart from "@/components/Linechart.vue";
+// import Polarchart from "@/components/Polarchart.vue";
 
 const app = createApp(App)
 
@@ -37,7 +41,11 @@ app.component('Header', Header)
 app.component('Scrollspy', Scrollspy)
 app.component('Footer', Footer)
 app.component('Piechart', Piechart)
+app.component('Piechart2', Piechart2)
 app.component('Barchart', Barchart)
+app.component('Voidpie', Voidpie)
+app.component('Linearea', Linechart)
+// app.component('Polarchart', Polarchart)
 
 app
     .use(store)

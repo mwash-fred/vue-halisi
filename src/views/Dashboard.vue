@@ -16,17 +16,17 @@
 
       <div class="col-sm-10 content">
         <div class="tab pie-chart">
-          <Piechart />
-          <!-- <apexchart  width="330" type="donut" :options="options2" :series="series2"/> -->
+          <Piechart2 />
         </div>
         <div class="tab graph">
-          Line-chart
+          <Linechart />
         </div>
         <div class="tab pie-chart-long">
+          <Voidpie />
         </div>
         <div class="second">
-          <div class="gigs tab">gigs</div>
-          <div class="users tab">users</div>
+          <div class="gigs tab">Upcoming gigs</div>
+          <div class="users tab">Active Users</div>
           <div class="bar-graph tab">
             <Barchart />
           </div>
@@ -41,69 +41,14 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import Linechart from "@/components/Linechart.vue"
 
 @Options({
   name: "Dashboard",
   components: {
+    Linechart,
   },
-  data() {
-    return {
-      //Barchart references
-      
-      options: {
-        chart: {
-          id: "vuechart-example",
-        },
-        xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
-        },
-      },
-      series: [
-        {
-          name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 91],
-        },
-      ],
 
-      //Donut References
-      options2: {},
-      series2: [44, 55, 41, 17, 15],
-
-      //Linechart from chartjs data
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }],
-      chartOptions: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-      }
-    };
-  },
-  methods: {
-  },
 })
 export default class Dashboard extends Vue {}
 </script>
@@ -186,28 +131,11 @@ export default class Dashboard extends Vue {}
     text-align: center
     display: grid
     padding: 4em
-    padding-top: 5em !important
+    padding-top: 2.4em !important
     grid-template-columns: 40% 60%
     grid-template-rows: 40% 60%
     grid-gap: 1rem
-
-    .control
-        align-self: center
-        position: absolute
-        right: 0
-        top: 0
-        min-height: 2.4em
-        min-width: 2.4em
-        align-items: center
-        border-radius: 50%
-        background-color: $darkGreen
-        margin: .2em
-
-        i
-            margin-top: .6em
-
-            &:hover, &:active
-                color: $ashGray
+    padding-bottom: 5.4em !important
 
     .tab
         background-color: darken($darkGreen,2%)
