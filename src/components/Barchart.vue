@@ -100,7 +100,12 @@ export default defineComponent({
         axisTick: {
           show: false,
         },
-
+        // axisLine: {
+        //   lineStyle: {
+        //     color: "#dedede",
+        //     width: 1,
+        //   }
+        // },
         axisLabel: {
           fontFamily: "cormorant garamond",
           color: "#dedede",

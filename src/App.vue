@@ -58,7 +58,9 @@ import { gsap } from "@/assets/my-gsap";
         });
 
         // sort out this code for the scroll-spy later.
-        gsap.to($(".ss2"), { width: "86%", duration: 8,
+        gsap.to($(".ss2"), {
+          width: "86%",
+          duration: 8,
           scrollTrigger: {
             trigger: ".tabs",
             // start: "top top",
@@ -66,7 +68,7 @@ import { gsap } from "@/assets/my-gsap";
             scrub: 4,
             // end: () => window.innerWidth,
           },
-        })
+        });
       }
     },
   },
@@ -121,4 +123,41 @@ html, body
 
     &.router-link-exact-active
       color: $gray
+
+/* Calender Edits 
+.vc-calendar-tools
+  background: transparent !important
+
+  .vc-calendar-tools-container
+    lineheight: 20px !important
+    box-shadow: none !important
+    border-top: none !important
+    color: white !important
+    height: 24px !important
+
+  .vc-calendar-info
+    font-size: 18px !important
+
+  .vc-calendar-next, .vc-calendar-prev
+    width: 4% !important
+    margin-top: -.5vw !important
+
+    .iconfont
+      font-size: 12px !important
+
+  .vc-calendar-week-head 
+    margin-top: -3em !important
+    .vc-calendar-week-head-container
+      padding-top: 0 !important
+
+.vc-calendar-timetable
+  background: transparent !important
+
+.vc-calender-day, .vc-day-selected
+
+  &::before
+    // background-color: lighten($lightGreen,2% ) !important
+    background-color: $yellow !important
+    color: black !important
+    border-radius: 4em !important
 </style>

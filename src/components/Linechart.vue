@@ -61,7 +61,6 @@ export default defineComponent({
         orient: "horizontal",
         top: "bottom",
         left: 20,
-        // itemGap: 5,
         inactiveColor: "#707070",
         icon: "circle",
         textStyle: {
@@ -70,11 +69,11 @@ export default defineComponent({
           fontSize: 12.5,
         },
       },
-      toolbox: {
-        feature: {
-          saveAsImage: {},
-        },
-      },
+      // toolbox: {
+      //   feature: {
+      //     saveAsImage: {},
+      //   },
+      // },
       grid: {
         left: "10%",
         right: "5%",
@@ -89,7 +88,7 @@ export default defineComponent({
           axisTick: false,
           axisLabel: {
             fontFamily: "cormorant garamond",
-            color: "#dedede"
+            color: "#dedede",
           },
           data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Thu", "Fri"],
         },

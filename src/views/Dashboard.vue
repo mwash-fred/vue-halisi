@@ -25,8 +25,12 @@
           <Voidpie />
         </div>
         <div class="second">
-          <div class="gigs tab">Upcoming gigs</div>
-          <div class="users tab">Active Users</div>
+          <div class="gigs tab">
+            <Calender />
+          </div>
+          <div class="users tab">
+            <Daylinechart />
+          </div>
           <div class="bar-graph tab">
             <Barchart />
           </div>
@@ -41,14 +45,25 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
-import Linechart from "@/components/Linechart.vue"
+import Piechart from "@/components/Piechart.vue";
+import Piechart2 from "@/components/Piechart2.vue";
+import Barchart from "@/components/Barchart.vue";
+import Voidpie from "@/components/Voidpie.vue";
+import Linechart from "@/components/Linechart.vue";
+import Daylinechart from "@/components/Daylinechart.vue";
+import Calender from "@/components/Calender.vue";
 
 @Options({
   name: "Dashboard",
   components: {
+    Piechart,
+    Piechart2,
+    Barchart,
+    Voidpie,
     Linechart,
-  },
-
+    Daylinechart,
+    Calender
+  }
 })
 export default class Dashboard extends Vue {}
 </script>
