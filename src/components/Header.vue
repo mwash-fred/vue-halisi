@@ -4,14 +4,12 @@
       <div class="d-flex layer1">
         <h1>{{ title }}</h1>
 
-        <!-- <img
+        <img
           id="audio-icon"
           alt="audio-icon"
-          src="../../public/img/icons/mute.svg"
+          src="../assets/mute.svg"
           @click="toggleAudio"
-          @mouseover="play"
-        /> -->
-        <SoundButton />
+        />
 
         <div class="hamburgerIcon" @click="toggleMenu">
           <div class="top"></div>
@@ -32,24 +30,43 @@
 import { Options, Vue } from "vue-class-component";
 import { gsap } from "@/assets/my-gsap";
 import $ from "jquery";
-import SoundButton from "@/components/Soundbutton.vue"
+
+import { onMounted } from "vue-demi";
 
 // import useSound from "vue-use-sound";
 
 @Options({
   name: "Header",
-  components: {
-    SoundButton
-  },
   data() {
     return {
       rotation: 0,
-      audio: true,
+      audio: false,
     };
   },
 
   props: {
     title: String,
+  },
+  mounted() {
+    var audioElement = document.createElement("audio");
+    audioElement.setAttribute(
+      "src",
+      "http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg"
+    );
+
+    var audioState = this.audio;
+    $("#audio-icon").click( function () {
+      if ( audioState === false ) {
+        audioElement.play();
+        audioState = true;
+        console.log('audio turned on')
+      } else {
+        audioElement.pause()
+        audioState = false;
+        console.log('audio not wet')
+      }
+    });
+      
   },
   methods: {
     toggleMenu() {
@@ -88,12 +105,14 @@ import SoundButton from "@/components/Soundbutton.vue"
     toggleAudio() {
       if (this.audio === false) {
         this.audio = true;
-        console.log("on")
-        gsap.set($('#audio-icon'), { attr: { src: "../../public/img/icons/volume.svg" } }); //Change link to image sources on deployment
-      } else {
+        console.log("on");
+        gsap.set($("#audio-icon"), {
+          attr: { src: "../../public/img/icons/volume.svg" },
+        }); //Change link to image sources on deployment
+       } else {
         this.audio = false;
-        console.log("off")
-        gsap.set($('#audio-icon'), { attr: { src: "../../public/img/icons/mute.svg" } });
+        console.log("off");
+        gsap.set($("#audio-icon"), { attr: { src: "../assets/mute.svg" } });
       }
     },
   },
@@ -106,7 +125,8 @@ export default class Sidebar extends Vue {
 
 <style lang="sass" scoped>
 @import '@/assets/_config.sass'
-
+*
+  color: white !important
 .wrapper
   // position: relative
   // top: 0

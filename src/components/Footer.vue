@@ -3,13 +3,13 @@
     <div class="d-flex">
       <ul class="socials" @mouseover="$emit('hovered-here')" @mouseleave="$emit('hovered-outta-here')">
         <li>
-          <router-link to="/"><i class="fab fa-instagram"></i></router-link>
+          <a :href="instagram"><i class="fab fa-instagram"></i></a>
         </li>
         <li>
-          <router-link to="/"><i class="fab fa-twitter"></i></router-link>
+          <a :href="twitter"><i class="fab fa-twitter"></i></a>
         </li>
         <li>
-          <router-link to="/"><i class="fab fa-facebook-f"></i></router-link>
+          <a :href="facebook"><i class="fab fa-facebook-f"></i></a>
         </li>
       </ul>
     </div>
@@ -27,6 +27,13 @@ import { Options, Vue } from "vue-class-component";
 
 @Options({
   name: "Footer",
+  data() {
+    return {
+      instagram: 'https://www.instagram.com/halisi_studios/',
+      facebook: 'https://www.facebook.com/HalisiStudios',
+      twitter: 'https://www.twitter.com/HalisiStudios'
+    }
+  },
   emits: ["hovered-here","hovered-outta-here"],
 })
 export default class Footer extends Vue {}
@@ -45,8 +52,13 @@ footer
 
   a
     padding-inline: .8em
-    color: white
+    color: $yellow
     font-weight: bold
+
+    &:hover
+      color: white !important
+  .policies a
+    color: white 
 
   .socials
     margin-bottom: 7em
@@ -63,11 +75,14 @@ ul li
   @extend ul
   margin-block: .5em
   background: $darkGray
-  border: .5px solid $ashGray
+  border: .5px solid $midGray
+
+  &:hover
+      background: $lightGreen
+      border: .5px solid white
 
   & i
     font-size: .9rem
-    color: $yellow
     margin-left: -.28em
     margin-top: .55em
 
