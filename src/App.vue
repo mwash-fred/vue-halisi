@@ -27,9 +27,9 @@ import { gsap } from "@/assets/my-gsap";
   mounted() {
     var element = document.scrollingElement || document.documentElement;
     element.addEventListener("wheel", this.transformScroll);
-    window.addEventListener("scroll", this.startScroll);
-  
-    // gsap.to($("body"), {css: {overflow: "hidden"}})
+
+    //animation after users-first scroll
+    window.addEventListener("scroll", this.startScroll);  
   },
   methods: {
     transformScroll(event) {
@@ -39,6 +39,7 @@ import { gsap } from "@/assets/my-gsap";
       event.currentTarget.scrollLeft += event.deltaY + event.deltaX;
       // event.preventDefault();
     },
+    //method for afterUsersFirstScroll animation
     startScroll() {
       if (window.scrollX > 25) {
         gsap.to($("#sidebar"), {

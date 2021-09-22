@@ -16,9 +16,10 @@ export default {
       video: false,
     };
   },
-  // mounted() {},
   setup() {
     onMounted(() => {
+      $("html").css("overflow", "hidden");
+
       var videoElmnt = document.createElement("video");
       $(".video-container").append(videoElmnt);
       gsap.set(videoElmnt, {
@@ -37,33 +38,31 @@ export default {
 
       //Skip myStory video
       $("#clickToSkip").click(function () {
-        console.log("skip");
         videoElmnt.pause();
-        gsap.to($(".video-container"), {
-          autoAlpha: 0,
-          duration: 2,
-          ease: "easeOut",
-        });
+        videoEndHandler();
       });
 
       videoElmnt.addEventListener("ended", videoEndHandler, false);
       function videoEndHandler() {
         gsap
-          .timeline()
+          .timeline({ defaults: { duration: 2 } })
           .to($(".video-container"), {
             autoAlpha: 0,
-            duration: 2,
             ease: "easeOut",
-            delay: 2
+            delay: 1,
           })
-          .set($('.title a'),{css: { zIndex: 35 }, duration: 1.5},"-2")
-          .from($(".title a"), {
-            yPercent: 700,
-            duration: 2,
-            scale: 2,
-            delay: 4,
-            ease: "easeOut",
-          },"<");
+          .set($(".title a"), { css: { zIndex: 35 } }, "-2")
+          .from(
+            $(".title a"),
+            {
+              yPercent: 700,
+              scale: 2,
+              delay: 3,
+              ease: "easeOut",
+            },
+            "<"
+          );
+        $("html").css("overflow-x", "scroll");
       }
     });
   },
