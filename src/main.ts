@@ -11,6 +11,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 
+import Intro from "@/components/Intro.vue";
 import Sidebar from "@/components/Sidebar.vue";
 import Header from "@/components/Header.vue";
 import Mouse from "@/components/Mouse.vue";
@@ -30,6 +31,7 @@ app.mixin({
   }
 });
 
+app.component('Intro', Intro)
 app.component('Sidebar', Sidebar)
 app.component('Menu', Menu)
 app.component('Mouse', Mouse)

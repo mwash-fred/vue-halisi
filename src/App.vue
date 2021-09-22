@@ -1,5 +1,6 @@
 <template>
   <div id="nav">
+    <Intro />
     <Sidebar />
     <!-- <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> -->
@@ -27,7 +28,7 @@ import { gsap } from "@/assets/my-gsap";
     var element = document.scrollingElement || document.documentElement;
     element.addEventListener("wheel", this.transformScroll);
     window.addEventListener("scroll", this.startScroll);
-
+  
     // gsap.to($("body"), {css: {overflow: "hidden"}})
   },
   methods: {

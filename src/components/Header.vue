@@ -7,7 +7,7 @@
         <img
           id="audio-icon"
           alt="audio-icon"
-          src="../assets/mute.svg"
+          src="http://192.168.40.16:8080/src/assets/mute.svg"
           @click="toggleAudio"
         />
 
@@ -51,7 +51,7 @@ import { onMounted } from "vue-demi";
     var audioElement = document.createElement("audio");
     audioElement.setAttribute(
       "src",
-      "http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg"
+      "http://192.168.40.16:8080/src/assets/TheSea.mp3"
     );
 
     var audioState = this.audio;
@@ -66,8 +66,8 @@ import { onMounted } from "vue-demi";
         console.log('audio not wet')
       }
     });
-      
   },
+  
   methods: {
     toggleMenu() {
       if (this.rotation == 0) {
@@ -107,12 +107,12 @@ import { onMounted } from "vue-demi";
         this.audio = true;
         console.log("on");
         gsap.set($("#audio-icon"), {
-          attr: { src: "../../public/img/icons/volume.svg" },
+          attr: { src: "http://192.168.40.16:8080/src/assets/volume.svg" },
         }); //Change link to image sources on deployment
        } else {
         this.audio = false;
         console.log("off");
-        gsap.set($("#audio-icon"), { attr: { src: "../assets/mute.svg" } });
+        gsap.set($("#audio-icon"), { attr: { src: "http://192.168.40.16:8080/src/assets/mute.svg" } });
       }
     },
   },

@@ -9,4 +9,4 @@ import { EasePack } from "gsap/EasePack"
 
 gsap.registerPlugin(Draggable, ScrollToPlugin, TextPlugin, ScrollTrigger, gsap);
 
-export { gsap, Draggable, ScrollToPlugin, ScrollTrigger, TextPlugin };
+export { gsap, Draggable, ScrollToPlugin, ScrollTrigger, TextPlugin , EasePack};

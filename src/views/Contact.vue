@@ -80,7 +80,7 @@
           placeholder="Enter your message here..."
           required
         ></textarea>
-        <button type="submit" class="btn">Submit</button>
+        <button type="submit" class="btn" @click="submitBooking">Submit</button>
       </div>
     </form>
 
@@ -103,7 +103,7 @@
           placeholder="Your Email Address"
           required
           />
-        <button class="btn d-block" type="submit">Subscribe</button>
+        <button class="btn d-block" type="submit" @click="handleSubs">Subscribe</button>
       </div>
       <p class="slogan">"Halisi studios slogan could go here.."</p>
     </div>
@@ -133,6 +133,8 @@ import $ from "jquery";
         phone: "+25717846486",
         message: "I'd like to make a booking for 29th October",
       },
+      booking: "",
+      emailLetterheads: ""
     };
   },
   mounted () {
@@ -149,6 +151,12 @@ import $ from "jquery";
     mouseExit() {
       this.myVar = 1;
     },
+    handleSubs(){
+      alert('subscribed')
+    },
+    submitBooking(){
+      alert("booked")
+    }
   },
 })
 export default class Home extends Vue {}
@@ -158,10 +166,10 @@ export default class Home extends Vue {}
 <style lang="sass" scoped>
 @import '@/assets/_config.sass'
 *
-  color: white
+  color: #e2e2e2
 
 a
-  color: $gray
+  color: #e2e2e2
 
 h1
   font-family: $secondaryFont
@@ -170,7 +178,6 @@ h1
 span
   -webkit-text-fill-color: $yellow
   -webkit-text-stroke: 0px white
-  // color: $yellow
   white-space: nowrap
 
 .payment

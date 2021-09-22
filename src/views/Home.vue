@@ -41,7 +41,6 @@ import { gsap } from "@/assets/my-gsap";
     Dash,
     Tabs,
     HelloWorld,
-    // HorizontalScroll,
   },
   data() {
     return {
@@ -50,9 +49,6 @@ import { gsap } from "@/assets/my-gsap";
     };
   },
   mounted() {
-    // let foot = $("li");
-    // gsap.to(foot, { xPercent: -50 });
-
     //Cursor grow on hover
     var links = [$("a"),$(".hamburgerIcon"),$("#audio-icon")];
     links.forEach((el) => {
@@ -70,6 +66,9 @@ import { gsap } from "@/assets/my-gsap";
         duration: 0.5,
         yoyo: true,
       });
+
+    //OnLoad 
+    // gsap.from($('.title a'),{yPercent: 700, duration: 1, scale: 2, delay: 5, ease: 'easeOut'})
   },
   methods: {
     mouseHovered() {
@@ -152,7 +151,6 @@ body
 .titleTag div
   font-family: $secondaryFont
   position: absolute
-  // z-index: 0
   transform: rotate(-90deg)
   white-space: nowrap
   font-size: 5rem
